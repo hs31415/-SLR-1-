@@ -49,11 +49,12 @@ public class GrammarAnalysis{
     }
 
     private String dumpStackState(){
-        return "Dump: \nState: " + _stateStack.toString() + "Symbol: " + _symbolStack.toString();
+        return "Dump: \nState: " + _stateStack.toString() + " Symbol: " + _symbolStack.toString() + " Input: " + _lexemeQueue.toString();
     }
     private void setErrorMessage(String message){
         _isError = true;
         _errorMessageQueue.add(message + "\n" + dumpStackState());
+        _lexemeQueue.poll();
     }
 
     private void getErrorMessage(){
@@ -77,7 +78,7 @@ public class GrammarAnalysis{
             _currentState = _stateStack.peek();
             // 头部不能为文法开始符号，因为文法开始符号一旦出现在symbolStack头部即规约成功
             _symbolMessageQueue.add(_symbolStack.toString());
-            if(!"expr_list1".equals(_symbolStack.peek()) && !_isError) {
+            if(!"expr_list1".equals(_symbolStack.peek()) && !_lexemeQueue.isEmpty()) {
                 analysisAction(_currentState, _symbolStack.peek(), _lexemeQueue.peek());
             }else{
                 break;
