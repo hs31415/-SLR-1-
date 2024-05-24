@@ -1,0 +1,69 @@
+0 s’ -> exp
+1 exp -> For exp
+2 exp -> If exp
+3 exp -> Repeat exp
+4 exp -> Defun exp
+5 exp -> return ; exp
+6 exp -> break ; exp
+7 exp -> Define ; exp
+8 exp -> AssExp ; exp
+9 exp -> block
+10 exp -> eps
+11 For -> for ( cal ; cal ; cal ) block
+12 Repeat -> repeat block until ( cal )
+13 block-> { exp }
+14 If -> if ( cal ) exp 
+15 If -> if ( cal ) exp else exp
+16 If -> if ( cal ) exp else If
+17 Define -> type Arr , Define
+18 Define -> type Arr assign
+19 Define -> type Arr
+20 type -> integer 
+21 type -> double 
+22 type -> char
+23 Arr -> id Arrv
+24 Arrv -> [ int ] Arrv 
+25 Arrv -> [ num ] Arrv 
+26 Arrv -> eps
+27 assign -> = cal 
+28 assign -> = cal assgin
+29 AssExp -> Arr assgin
+30 Defun -> id = function ( pars ) block
+31 pars -> par , pars
+32 pars -> par
+33 pars -> eps
+34 par -> type id
+35 cal -> - cal
+36 cal -> ( cal )
+37 cal -> cal + cal
+38 cal -> cal - cal
+39 cal -> cal * cal
+40 cal -> cal / cal
+41 cal -> cal - -
+42 cal -> cal ++
+43 cal -> cal += cal
+44 cal -> cal -= cal
+45 cal -> cal *= cal
+46 cal -> cal /= cal
+47 cal -> cal > cal
+48 cal -> cal >= cal
+49 cal -> cal < cal
+50 cal -> cal <= cal
+51 cal -> cal == cal
+52 cal -> cal != cal
+53 cal -> cal || cal
+54 cal -> cal && cal
+55 cal -> int
+56 cal -> real 
+57 cal -> num
+58 cal -> Arr
+59 cal -> id ( argus )
+60 cal -> keyword ( argus )
+61 cal -> ! cal
+62 argus -> argu , argus
+63 argus -> argu
+64 argus -> eps
+65 argu -> cal
+66 exp -> cal ; exp
+67 Arrv -> [ id ] Arrv
+68 exp -> return cal ; exp

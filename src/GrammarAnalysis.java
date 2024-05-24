@@ -1,10 +1,8 @@
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.*;
 
 public class GrammarAnalysis{
+    public static final String BEGIN_SIGN = "expr_list1";
     private static BufferedReader _bufferedReader;
     private static FileReader _fileReader;
     private String _textContent = "";
@@ -17,6 +15,9 @@ public class GrammarAnalysis{
     private Stack<Integer> _stateStack;
     private Integer _currentState;
     private boolean _isError;
+    private Boolean _isUsingExternalFile;
+    private String _externalTablePath;
+    private File _externalTableFile;
 
     public static void getFileContent(String filePath) throws FileNotFoundException {
         _fileReader = new FileReader(filePath);
@@ -63,7 +64,8 @@ public class GrammarAnalysis{
             _errorMessageQueue.poll();
         }
     }
-    public void analysisInput() throws IOException{
+
+    private void initStackAndQueue(){
         // 初始化堆栈状态
         _stateStack = new Stack<>();
         _symbolStack = new Stack<>();
@@ -73,13 +75,17 @@ public class GrammarAnalysis{
 
         _stateStack.push(0);
         _symbolStack.push("$");
+    }
+    public void analysisInput() throws IOException{
+        initStackAndQueue();
         // 开始分析
         while(!_lexemeQueue.isEmpty()){
             _currentState = _stateStack.peek();
             // 头部不能为文法开始符号，因为文法开始符号一旦出现在symbolStack头部即规约成功
             _symbolMessageQueue.add(_symbolStack.toString());
-            if(!"expr_list1".equals(_symbolStack.peek()) && !_lexemeQueue.isEmpty()) {
-                analysisAction(_currentState, _symbolStack.peek(), _lexemeQueue.peek());
+            if(!BEGIN_SIGN.equals(_symbolStack.peek()) && !_lexemeQueue.isEmpty()) {
+                if(!_isUsingExternalFile) analysisAction(_currentState, _lexemeQueue.peek());
+                else analysisAction(_currentState, _lexemeQueue.peek(), _externalTablePath);
             }else{
                 break;
             }
@@ -87,6 +93,7 @@ public class GrammarAnalysis{
         getOutputTable();
         if(_isError) getErrorMessage();
     }
+
     private void shiftAction(int stateTransferTo){
         try{
             _symbolStack.push(_lexemeQueue.peek());
@@ -97,6 +104,18 @@ public class GrammarAnalysis{
         }catch(Exception e){
             System.out.println(e);
         }
+    }
+
+    private void fShiftAction(int stateTransferTo){
+
+    }
+
+    private void fReduceAction(int ruleApplyTo){
+
+    }
+
+    private void fGotoAction(int stateTransferTo){
+
     }
 
     private void gotoAction(int stateTransferTo){
@@ -122,11 +141,11 @@ public class GrammarAnalysis{
                 _symbolStack.push(p.getLeftPart());
                 _currentState = _stateStack.peek();
                 // 基于目前状态再分析一次
-                analysisAction(_currentState, _symbolStack.peek(), _symbolStack.peek());
+                if(!_symbolStack.peek().equals(BEGIN_SIGN))analysisAction(_currentState, _symbolStack.peek());
             }else if("eps".equals(rightPart.get(0))){
                 _symbolStack.push(p.getLeftPart());
                 _currentState = _stateStack.peek();
-                analysisAction(_currentState, _symbolStack.peek(), _symbolStack.peek());
+                analysisAction(_currentState,  _symbolStack.peek());
             }
 
             _actionMessageQueue.add("REDUCE ACTION: " + p);
@@ -135,7 +154,10 @@ public class GrammarAnalysis{
         }
     }
 
-    private void analysisAction(Integer currentState, String symbolTop, String inputFront) {
+    private void analysisAction(Integer currentState, String inputFront, String filePath){
+
+    }
+    private void analysisAction(Integer currentState, String inputFront) {
         switch(currentState){
             case 0:
                 switch(inputFront){
@@ -158,7 +180,7 @@ public class GrammarAnalysis{
                         gotoAction(3);
                         break;
                     case "expr_list":
-                        gotoAction(1);
+                        gotoAction (1);
                         break;
                     case "primary":
                         gotoAction(4);

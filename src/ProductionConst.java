@@ -1,3 +1,6 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -24,5 +27,32 @@ public class ProductionConst {
         PRODUCTION_MAP.put(15, new Production("expr_tail", new ArrayList<>(List.of(new String[]{"eps"}))));
         PRODUCTION_MAP.put(16, new Production("factor_tail", new ArrayList<>(List.of(new String[]{"mulop", "primary", "factor_tail"}))));
         PRODUCTION_MAP.put(17, new Production("factor_tail", new ArrayList<>(List.of(new String[]{"eps"}))));
+    }
+
+    // 0  1  2      3    4
+    // 3　exp -> Repeat exp
+
+    // 0  1  2      3
+    // x a   ->     b
+    public static void getProductionFromFile(String filePath){
+        try{
+            FileReader fileReader = new FileReader(filePath);
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            while(bufferedReader.ready()){
+                String content = bufferedReader.readLine();
+                ArrayList<String> dividedLine = new ArrayList<>(List.of(content.split(" ")));
+
+                if(dividedLine.size() < 4) throw new Exception("Invalid input of productions: +" + content);
+                ArrayList<String> rightPart = new ArrayList<>();
+                for(int i = 3; i < dividedLine.size(); i++){
+                    rightPart.add(dividedLine.get(i));
+                }
+                PRODUCTION_MAP.put(Integer.parseInt(dividedLine.get(0)), new Production(dividedLine.get(1), rightPart));
+            }
+        }catch(IOException e){
+            System.out.println(e.toString());
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 }
