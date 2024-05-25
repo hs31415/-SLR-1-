@@ -4,7 +4,16 @@ import java.io.*;
 import java.util.*;
 
 public class GrammarAnalysis{
-    public static final String BEGIN_SIGN = "s'";
+    private static final String BEGIN_SIGN = "expr_list1";
+    private static final String OUTPUT_FILE_NAME = "analyze.out";
+    private static final String ERROR_FILE_NAME = "analyze.err";
+    private static final String ANALYZER_FILE_NAME = "analyzer.xlsx";
+    private static final String PRODUCTION_FILE_NAME = "production.txt";
+    private File _outputFile;
+    private File _errorFile;
+    private FileWriter _outputFileWriter;
+    private FileWriter _errorFileWriter;
+
     private static BufferedReader _bufferedReader;
     private static FileReader _fileReader;
     private String _textContent = "";
@@ -42,17 +51,57 @@ public class GrammarAnalysis{
         }
     }
 
+    private void setOutput(String content, FileWriter fileWriter){
+        if(null == fileWriter) throw new IllegalArgumentException("File writer is null!");
+        else {
+            System.out.print(content);
+            try {
+                fileWriter.write(content);
+                fileWriter.flush();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
+    }
+
     private void getOutputTable(){
-        System.out.printf("%-25s%-25s%-25s%-25s\n", "State", "Input", "Symbol", "Action");
+        try{
+            if(null != _outputFileWriter){
+                _outputFileWriter.close();
+            }
+            _outputFileWriter = new FileWriter(_outputFile);
+        } catch (IOException e){
+            throw new RuntimeException(e);
+        }
+
+        setOutput(String.format("%-50s%-50s%-50s%-50s\n", "State", "Input", "Symbol", "Action"), _outputFileWriter);
+//        System.out.printf("%-25s%-25s%-25s%-25s\n", "State", "Input", "Symbol", "Action");
+
         int index = Math.min(_actionMessageQueue.size(), _symbolMessageQueue.size());
         for(int i = 0; i < index; i++){
-            System.out.printf("%-25s%-25s%-25s%-25s\n", _stateMessageQueue.peek(), _lexemeMessageQueue.peek(), _symbolMessageQueue.peek(), _actionMessageQueue.peek());
+
+            setOutput(String.format("%-50s%-50s%-50s%-50s\n", _stateMessageQueue.peek(), _lexemeMessageQueue.peek(), _symbolMessageQueue.peek(), _actionMessageQueue.peek()),
+                    _outputFileWriter);
+//            System.out.printf("%-25s%-25s%-25s%-25s\n", _stateMessageQueue.peek(), _lexemeMessageQueue.peek(), _symbolMessageQueue.peek(), _actionMessageQueue.peek());
+
             _actionMessageQueue.poll();
             _symbolMessageQueue.poll();
             _stateMessageQueue.poll();
             _lexemeMessageQueue.poll();
         }
-        System.out.println(_symbolMessageQueue.peek());
+        if(!_symbolMessageQueue.isEmpty()) setOutput(_symbolMessageQueue.peek(), _outputFileWriter);
+    }
+
+    private void writeContentToFile(String content){
+        try{
+            File file = new File(OUTPUT_FILE_NAME);
+            FileWriter writer = new FileWriter(file);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+
     }
 
     private String dumpStackState(){
@@ -65,8 +114,18 @@ public class GrammarAnalysis{
     }
 
     private void getErrorMessage(){
+        try{
+            if(null != _errorFileWriter){
+                _errorFileWriter.close();
+            }
+            _errorFileWriter = new FileWriter(_errorFile);
+        } catch (IOException e){
+            throw new RuntimeException(e);
+        }
+
         while(!_errorMessageQueue.isEmpty()){
-            System.out.println(_errorMessageQueue.peek());
+//            System.out.println(_errorMessageQueue.peek());
+            setOutput(_errorMessageQueue.peek(), _errorFileWriter);
             _errorMessageQueue.poll();
         }
     }
@@ -85,23 +144,48 @@ public class GrammarAnalysis{
         _symbolStack.push("$");
     }
 
+
+    private void initFileStatus(){
+        if(null == _errorFile) _errorFile = new File(ERROR_FILE_NAME);
+        if(null == _outputFile) _outputFile = new File(OUTPUT_FILE_NAME);
+        if(_errorFile.exists()){
+            Boolean hasDeleted = _errorFile.delete();
+        }
+        if(_outputFile.exists()){
+            Boolean hasDeleted = _outputFile.delete();
+        }
+        try{
+            boolean hasCreated = _errorFile.createNewFile();
+            hasCreated = _outputFile.createNewFile();
+        }catch (IOException e){
+            System.out.println(e);
+        }
+    }
     private void initProductionConstAndTable(){
-        ProductionTable.setTableFile("analyzer.xlsx");
+        ProductionTable.setTableFile(ANALYZER_FILE_NAME);
         try {
             ProductionTable.initSymbolMap();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        ProductionConst.getProductionFromFile("production.txt");
+        ProductionConst.getProductionFromFile(PRODUCTION_FILE_NAME);
+    }
+
+    private void initHardcodedProductionConstAndTable(){
+        ProductionConst.testProductionMap();
+
     }
     public void analysisInput() throws IOException{
+        initFileStatus();
         initStackAndQueue();
+        initHardcodedProductionConstAndTable();
         // 开始分析
         while(!_lexemeQueue.isEmpty()){
             _currentState = _stateStack.peek();
             // 头部不能为文法开始符号，因为文法开始符号一旦出现在symbolStack头部即规约成功
             _symbolMessageQueue.add(_symbolStack.toString());
             _stateMessageQueue.add(_stateStack.toString());
+            _lexemeMessageQueue.add(_lexemeQueue.toString());
             if(!BEGIN_SIGN.equals(_symbolStack.peek()) && !_lexemeQueue.isEmpty()) {
                 analysisAction(_currentState, _lexemeQueue.peek());
             }else{
@@ -113,7 +197,7 @@ public class GrammarAnalysis{
     }
 
     public void fAnalysisInput() throws IOException {
-
+        initFileStatus();
         initStackAndQueue();
         initProductionConstAndTable();
 

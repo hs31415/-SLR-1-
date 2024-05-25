@@ -1,0 +1,19 @@
+State                                             Input                                             Symbol                                            Action                                            
+[0]                                               [id, +, id, +, id, +, +, +, $]                    [$]                                               SHIFT TO: 6                                       
+[0, 6]                                            [+, id, +, id, +, +, +, $]                        [$, id]                                           REDUCE ACTION: primary->[id]                      
+[0, 4]                                            [+, id, +, id, +, +, +, $]                        [$, primary]                                      REDUCE ACTION: factor_tail->[eps]                 
+[0, 4, 15]                                        [+, id, +, id, +, +, +, $]                        [$, primary, factor_tail]                         REDUCE ACTION: factor->[primary, factor_tail]     
+[0, 3]                                            [+, id, +, id, +, +, +, $]                        [$, factor]                                       SHIFT TO: 13                                      
+[0, 3, 13]                                        [id, +, id, +, +, +, $]                           [$, factor, +]                                    REDUCE ACTION: addop->[+]                         
+[0, 3, 12]                                        [id, +, id, +, +, +, $]                           [$, factor, addop]                                SHIFT TO: 6                                       
+[0, 3, 12, 6]                                     [+, id, +, +, +, $]                               [$, factor, addop, id]                            REDUCE ACTION: primary->[id]                      
+[0, 3, 12, 4]                                     [+, id, +, +, +, $]                               [$, factor, addop, primary]                       REDUCE ACTION: factor_tail->[eps]                 
+[0, 3, 12, 4, 15]                                 [+, id, +, +, +, $]                               [$, factor, addop, primary, factor_tail]          REDUCE ACTION: factor->[primary, factor_tail]     
+[0, 3, 12, 19]                                    [+, id, +, +, +, $]                               [$, factor, addop, factor]                        SHIFT TO: 13                                      
+[0, 3, 12, 19, 13]                                [id, +, +, +, $]                                  [$, factor, addop, factor, +]                     REDUCE ACTION: addop->[+]                         
+[0, 3, 12, 19, 12]                                [id, +, +, +, $]                                  [$, factor, addop, factor, addop]                 SHIFT TO: 6                                       
+[0, 3, 12, 19, 12, 6]                             [+, +, +, $]                                      [$, factor, addop, factor, addop, id]             REDUCE ACTION: primary->[id]                      
+[0, 3, 12, 19, 12, 4]                             [+, +, +, $]                                      [$, factor, addop, factor, addop, primary]        REDUCE ACTION: factor_tail->[eps]                 
+[0, 3, 12, 19, 12, 4, 15]                         [+, +, +, $]                                      [$, factor, addop, factor, addop, primary, factor_tail]REDUCE ACTION: factor->[primary, factor_tail]     
+[0, 3, 12, 19, 12, 19]                            [+, +, +, $]                                      [$, factor, addop, factor, addop, factor]         SHIFT TO: 13                                      
+[$, factor, addop, factor, addop, factor, +]

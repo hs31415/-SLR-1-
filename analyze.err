@@ -1,0 +1,7 @@
+Error!
+Dump: 
+State: [0, 3, 12, 19, 12, 19, 13] Symbol: [$, factor, addop, factor, addop, factor, +] Input: [+, +, $]Error!
+Dump: 
+State: [0, 3, 12, 19, 12, 19, 13] Symbol: [$, factor, addop, factor, addop, factor, +] Input: [+, $]Error!
+Dump: 
+State: [0, 3, 12, 19, 12, 19, 13] Symbol: [$, factor, addop, factor, addop, factor, +] Input: [$]

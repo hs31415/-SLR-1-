@@ -1,13 +1,1 @@
-id = function ( integer id , integer id , double id ) {
- integer id [ int ] [ int ] ;
- double id [ int ] ;
- if ( id = = int ) return ( num ) ;
- integer id = keyword ( id * id ) ;
- if ( id < int | | id > ( id - int ) )
- id = int ;
- else if ( id > real * id )
- id = keyword ( id / real ) ;
- id = id - id ;
- integer id = keyword ( id * id / id ) ;
- integer id = id - id ;
- }
+id + id + id + + +

@@ -8,7 +8,7 @@ public class Main {
         GrammarAnalysis.getFileContent("./test.txt");
         GrammarAnalysis grammarAnalysis = new GrammarAnalysis();
         grammarAnalysis.handleInput();
-        grammarAnalysis.fAnalysisInput();
-
+//        grammarAnalysis.fAnalysisInput();
+        grammarAnalysis.analysisInput();
     }
 }
