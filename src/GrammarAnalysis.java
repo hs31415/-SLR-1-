@@ -1,8 +1,10 @@
+import org.apache.commons.math3.util.Pair;
+
 import java.io.*;
 import java.util.*;
 
 public class GrammarAnalysis{
-    public static final String BEGIN_SIGN = "expr_list1";
+    public static final String BEGIN_SIGN = "s'";
     private static BufferedReader _bufferedReader;
     private static FileReader _fileReader;
     private String _textContent = "";
@@ -11,6 +13,8 @@ public class GrammarAnalysis{
     private Queue<String> _actionMessageQueue;
     private Queue<String> _symbolMessageQueue;
     private Queue<String> _errorMessageQueue;
+    private Queue<String> _stateMessageQueue;
+    private Queue<String> _lexemeMessageQueue;
     private Stack<String> _symbolStack;
     private Stack<Integer> _stateStack;
     private Integer _currentState;
@@ -39,12 +43,14 @@ public class GrammarAnalysis{
     }
 
     private void getOutputTable(){
-        System.out.printf("%-100s%-100s\n", "Symbol", "Action");
+        System.out.printf("%-25s%-25s%-25s%-25s\n", "State", "Input", "Symbol", "Action");
         int index = Math.min(_actionMessageQueue.size(), _symbolMessageQueue.size());
         for(int i = 0; i < index; i++){
-            System.out.printf("%-100s%-100s\n",_symbolMessageQueue.peek(), _actionMessageQueue.peek());
+            System.out.printf("%-25s%-25s%-25s%-25s\n", _stateMessageQueue.peek(), _lexemeMessageQueue.peek(), _symbolMessageQueue.peek(), _actionMessageQueue.peek());
             _actionMessageQueue.poll();
             _symbolMessageQueue.poll();
+            _stateMessageQueue.poll();
+            _lexemeMessageQueue.poll();
         }
         System.out.println(_symbolMessageQueue.peek());
     }
@@ -72,9 +78,21 @@ public class GrammarAnalysis{
         _actionMessageQueue = new LinkedList<>();
         _symbolMessageQueue = new LinkedList<>();
         _errorMessageQueue = new LinkedList<>();
+        _stateMessageQueue = new LinkedList<>();
+        _lexemeMessageQueue = new LinkedList<>();
 
         _stateStack.push(0);
         _symbolStack.push("$");
+    }
+
+    private void initProductionConstAndTable(){
+        ProductionTable.setTableFile("analyzer.xlsx");
+        try {
+            ProductionTable.initSymbolMap();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        ProductionConst.getProductionFromFile("production.txt");
     }
     public void analysisInput() throws IOException{
         initStackAndQueue();
@@ -83,9 +101,31 @@ public class GrammarAnalysis{
             _currentState = _stateStack.peek();
             // 头部不能为文法开始符号，因为文法开始符号一旦出现在symbolStack头部即规约成功
             _symbolMessageQueue.add(_symbolStack.toString());
+            _stateMessageQueue.add(_stateStack.toString());
             if(!BEGIN_SIGN.equals(_symbolStack.peek()) && !_lexemeQueue.isEmpty()) {
-                if(!_isUsingExternalFile) analysisAction(_currentState, _lexemeQueue.peek());
-                else analysisAction(_currentState, _lexemeQueue.peek(), _externalTablePath);
+                analysisAction(_currentState, _lexemeQueue.peek());
+            }else{
+                break;
+            }
+        }
+        getOutputTable();
+        if(_isError) getErrorMessage();
+    }
+
+    public void fAnalysisInput() throws IOException {
+
+        initStackAndQueue();
+        initProductionConstAndTable();
+
+        // 开始分析
+        while(!_lexemeQueue.isEmpty()){
+            _currentState = _stateStack.peek();
+            // 头部不能为文法开始符号，因为文法开始符号一旦出现在symbolStack头部即规约成功
+            _symbolMessageQueue.add(_symbolStack.toString());
+            _stateMessageQueue.add(_stateStack.toString());
+            _lexemeMessageQueue.add(_lexemeQueue.toString());
+            if(!BEGIN_SIGN.equals(_symbolStack.peek()) && !_lexemeQueue.isEmpty()) {
+                fAnalysisAction(_currentState, _lexemeQueue.peek());
             }else{
                 break;
             }
@@ -107,15 +147,51 @@ public class GrammarAnalysis{
     }
 
     private void fShiftAction(int stateTransferTo){
+        try{
+            _symbolStack.push(_lexemeQueue.peek());
+            _lexemeQueue.poll();
+            _stateStack.push(stateTransferTo);
 
+            _actionMessageQueue.add("SHIFT TO: " + stateTransferTo);
+        }catch(Exception e){
+            System.out.println(e);
+        }
     }
 
     private void fReduceAction(int ruleApplyTo){
+        try{
+            Production p = ProductionConst.PRODUCTION_MAP.get(ruleApplyTo);
+            // 获取产生式的右部
+            ArrayList<String> rightPart = p.getRightPart();
+            Integer rightPartLen = p.getRightPartLength();
+            if(!rightPart.isEmpty() && (!"eps".equals(rightPart.get(0)))){
+                for(int i = 0; i < rightPartLen; i++){
+                    _symbolStack.pop();
+                    _stateStack.pop();
+                }
+                // 将右部规约成左部
+                _symbolStack.push(p.getLeftPart());
+                _currentState = _stateStack.peek();
+                // 基于目前状态再分析一次
+                if(!_symbolStack.peek().equals(BEGIN_SIGN)) fAnalysisAction(_currentState, _symbolStack.peek());
+            }else if("eps".equals(rightPart.get(0))){
+                _symbolStack.push(p.getLeftPart());
+                _currentState = _stateStack.peek();
+                fAnalysisAction(_currentState,  _symbolStack.peek());
+            }
 
+            _actionMessageQueue.add("REDUCE ACTION: " + p);
+        }catch(Exception e){
+            System.out.println(e.toString());
+        }
     }
 
     private void fGotoAction(int stateTransferTo){
-
+        try{
+            _stateStack.push(stateTransferTo);
+        }catch (Exception e){
+            System.out.println(e);
+        }
     }
 
     private void gotoAction(int stateTransferTo){
@@ -141,7 +217,7 @@ public class GrammarAnalysis{
                 _symbolStack.push(p.getLeftPart());
                 _currentState = _stateStack.peek();
                 // 基于目前状态再分析一次
-                if(!_symbolStack.peek().equals(BEGIN_SIGN))analysisAction(_currentState, _symbolStack.peek());
+                if(!_symbolStack.peek().equals(BEGIN_SIGN)) analysisAction(_currentState, _symbolStack.peek());
             }else if("eps".equals(rightPart.get(0))){
                 _symbolStack.push(p.getLeftPart());
                 _currentState = _stateStack.peek();
@@ -154,8 +230,50 @@ public class GrammarAnalysis{
         }
     }
 
-    private void analysisAction(Integer currentState, String inputFront, String filePath){
+    private String get2ndElementFromQueue(Queue<String> q) throws Exception {
+       if(q.size() < 2) throw new IllegalArgumentException("Queue size is not correct.");
+       String ans = "";
+       Queue<String> p = new LinkedList<>();
+       String tmp = q.poll();
+       p.offer(tmp);
+       ans = q.peek();
+       while(!q.isEmpty()){
+           p.offer(q.peek());
+           q.poll();
+       }
+       _lexemeQueue=p;
+       return ans;
+    }
 
+    private void fAnalysisAction(Integer currentState, String inputFront){
+        try {
+            Pair<String, Integer> actionPair = ProductionTable.getCellValue(inputFront, currentState);
+            switch (actionPair.getFirst()){
+                case "Goto":
+                    fGotoAction(actionPair.getSecond());
+                    break;
+                case "Reduce":
+                    fReduceAction(actionPair.getSecond());
+                    break;
+                case "Shift":
+                    fShiftAction(actionPair.getSecond());
+                    break;
+                case "Predict":
+                    String predict = get2ndElementFromQueue(_lexemeQueue);
+                    if (predict.equals("function")) {
+                        fShiftAction(26);
+                    } else {
+                        fReduceAction(26);
+                    }
+            }
+            // 如果发生空指针异常说明对应单元格为空
+        }catch(NullPointerException e){
+            setErrorMessage("Error!");
+        }catch(IllegalArgumentException e){
+            setErrorMessage("QueueSize is not correct");
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
     private void analysisAction(Integer currentState, String inputFront) {
         switch(currentState){

@@ -1,0 +1,18 @@
+0 expr_list' -> expr_list
+1 expr -> factor expr_tail
+2 factor -> primary factor_tail
+3 expr_list -> expr expr_list_tail
+4 expr_list_tail-> , expr expr_list_tail
+5 expr_list_tail -> eps
+6 primary -> ( expr )
+7 primary -> id
+8 primary -> INTLITERAL
+9 primary -> FLOATLITERAL
+10 addop -> +
+11 addop -> -
+12 mulop -> *
+13 mulop -> /
+14 expr_tail -> addop factor expr_tail
+15 expr_tail -> eps
+16 factor_tail -> mulop primary factor_tail
+17 factor_tail -> eps

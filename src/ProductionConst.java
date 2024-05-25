@@ -48,6 +48,8 @@ public class ProductionConst {
                     rightPart.add(dividedLine.get(i));
                 }
                 PRODUCTION_MAP.put(Integer.parseInt(dividedLine.get(0)), new Production(dividedLine.get(1), rightPart));
+
+//                System.out.println(PRODUCTION_MAP);
             }
         }catch(IOException e){
             System.out.println(e.toString());
@@ -55,4 +57,5 @@ public class ProductionConst {
             throw new RuntimeException(e);
         }
     }
+
 }

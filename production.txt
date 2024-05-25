@@ -1,9 +1,9 @@
-0 s’ -> exp
+0 s' -> exp
 1 exp -> For exp
 2 exp -> If exp
 3 exp -> Repeat exp
 4 exp -> Defun exp
-5 exp -> return ; exp
+5 exp -> return ( cal ) ; exp
 6 exp -> break ; exp
 7 exp -> Define ; exp
 8 exp -> AssExp ; exp
@@ -11,7 +11,7 @@
 10 exp -> eps
 11 For -> for ( cal ; cal ; cal ) block
 12 Repeat -> repeat block until ( cal )
-13 block-> { exp }
+13 block -> { exp }
 14 If -> if ( cal ) exp 
 15 If -> if ( cal ) exp else exp
 16 If -> if ( cal ) exp else If
@@ -40,19 +40,19 @@
 39 cal -> cal * cal
 40 cal -> cal / cal
 41 cal -> cal - -
-42 cal -> cal ++
-43 cal -> cal += cal
-44 cal -> cal -= cal
-45 cal -> cal *= cal
-46 cal -> cal /= cal
+42 cal -> cal + +
+43 cal -> cal + = cal
+44 cal -> cal - = cal
+45 cal -> cal * = cal
+46 cal -> cal / = cal
 47 cal -> cal > cal
-48 cal -> cal >= cal
+48 cal -> cal > = cal
 49 cal -> cal < cal
-50 cal -> cal <= cal
-51 cal -> cal == cal
-52 cal -> cal != cal
-53 cal -> cal || cal
-54 cal -> cal && cal
+50 cal -> cal < = cal
+51 cal -> cal = = cal
+52 cal -> cal ! = cal
+53 cal -> cal | | cal
+54 cal -> cal & & cal
 55 cal -> int
 56 cal -> real 
 57 cal -> num
@@ -66,4 +66,4 @@
 65 argu -> cal
 66 exp -> cal ; exp
 67 Arrv -> [ id ] Arrv
-68 exp -> return cal ; exp
+68 exp -> return ( cal ) ; exp
