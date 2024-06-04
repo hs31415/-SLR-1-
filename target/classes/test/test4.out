@@ -1,0 +1,35 @@
+ <char>
+id:num1
+ <=>
+ <'1'>
+ <,>
+id:num2
+ <=>
+ <'2'>
+ <;>
+ <for>
+ <(>
+ <integer>
+id:i
+ <=>
+<NUM, 0>
+id:i
+ <<>
+<INT, 2>
+id:i
+ <=>
+id:i
+ <+>
+<INT, 1>
+ <{>
+ <write>
+ <(>
+id:num1
+ <)>
+ <;>
+ <write>
+ <(>
+id:num2
+ <)>
+ <;>
+ <}>

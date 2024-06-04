@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.*;
 
 public class GrammarAnalysis{
-    private static final String BEGIN_SIGN = "expr_list1";
+    private static final String BEGIN_SIGN = "s'";
     private static final String OUTPUT_FILE_NAME = "analyze.out";
     private static final String ERROR_FILE_NAME = "analyze.err";
     private static final String ANALYZER_FILE_NAME = "analyzer.xlsx";
@@ -17,7 +17,7 @@ public class GrammarAnalysis{
     private static BufferedReader _bufferedReader;
     private static FileReader _fileReader;
     private String _textContent = "";
-    private ArrayList<String> _lexeme;
+    private ArrayList<String> _lexeme = new ArrayList<>();
     private Queue<String> _lexemeQueue;
     private Queue<String> _actionMessageQueue;
     private Queue<String> _symbolMessageQueue;
@@ -36,14 +36,12 @@ public class GrammarAnalysis{
         _fileReader = new FileReader(filePath);
         _bufferedReader = new BufferedReader(_fileReader);
     }
-    public void handleInput() throws IOException {
-        String lineInput;
-        while(_bufferedReader.ready()){
-            lineInput = _bufferedReader.readLine();
-            _textContent += lineInput;
+    public void handleInput(ArrayList<Symbol> symbolArrayList) throws IOException {
+        for (Symbol symbol : symbolArrayList) {
+            symbol.printSymbol();
         }
-        if(_textContent != null && !_textContent.isEmpty()){
-            _lexeme = new ArrayList<>(Arrays.asList(_textContent.split(" ")));
+        for (Symbol symbol : symbolArrayList) {
+            _lexeme.add(symbol.getType());
         }
         if(_lexeme != null){
             _lexeme.add("$");
@@ -75,13 +73,14 @@ public class GrammarAnalysis{
             throw new RuntimeException(e);
         }
 
-        setOutput(String.format("%-50s%-50s%-50s%-50s\n", "State", "Input", "Symbol", "Action"), _outputFileWriter);
+//        setOutput(String.format("%-50s%-50s%-50s%-50s\n", "State", "Input", "Symbol", "Action"), _outputFileWriter);
+        setOutput(String.format("%-50s\t%-50s\n", "Symbol", "Action"), _outputFileWriter);
 //        System.out.printf("%-25s%-25s%-25s%-25s\n", "State", "Input", "Symbol", "Action");
 
         int index = Math.min(_actionMessageQueue.size(), _symbolMessageQueue.size());
         for(int i = 0; i < index; i++){
 
-            setOutput(String.format("%-50s%-50s%-50s%-50s\n", _stateMessageQueue.peek(), _lexemeMessageQueue.peek(), _symbolMessageQueue.peek(), _actionMessageQueue.peek()),
+            setOutput(String.format("%-50s\t\t\t\t%-50s\n", _symbolMessageQueue.peek(), _actionMessageQueue.peek()),
                     _outputFileWriter);
 //            System.out.printf("%-25s%-25s%-25s%-25s\n", _stateMessageQueue.peek(), _lexemeMessageQueue.peek(), _symbolMessageQueue.peek(), _actionMessageQueue.peek());
 

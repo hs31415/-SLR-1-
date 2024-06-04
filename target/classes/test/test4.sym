@@ -1,0 +1,17 @@
+KEYWORD function
+KEYWORD read
+KEYWORD write
+KEYWORD return
+KEYWORD if
+KEYWORD else
+KEYWORD for
+KEYWORD repeat
+KEYWORD until
+KEYWORD do
+KEYWORD while
+KEYWORD integer
+KEYWORD double
+KEYWORD char
+IDENTIFIER num1
+IDENTIFIER num2
+IDENTIFIER i

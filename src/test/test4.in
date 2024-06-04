@@ -1,0 +1,5 @@
+char num1 = '1', num2 = '2';
+for (integer i = 0; i < 2; i = i + 1) {
+  write(num1);
+  write(num2);
+}

@@ -1,0 +1,7 @@
+repeat{
+if (i>j){
+   j++;
+   sum--;
+}else i++;
+if(i<5 && j<10) sum = sum + a[i][j]*b[i][j]; else break;
+}until(sum>=100);

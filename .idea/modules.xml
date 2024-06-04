@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/SLRAnalyzer.iml" filepath="$PROJECT_DIR$/SLRAnalyzer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/slranalyzer.iml" filepath="$PROJECT_DIR$/slranalyzer.iml" />
     </modules>
   </component>
 </project>
