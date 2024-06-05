@@ -1,421 +1,49 @@
 Symbol                                            	Action                                            
-[$]                                               				SHIFT TO: 14                                      
-[$, id]                                           				SHIFT TO: 26                                      
-[$, id, =]                                        				SHIFT TO: 45                                      
-[$, id, =, function]                              				SHIFT TO: 68                                      
-[$, id, =, function, (]                           				SHIFT TO: 16                                      
-[$, id, =, function, (, integer]                  				REDUCE ACTION: type->[integer]                    
-[$, id, =, function, (, type]                     				SHIFT TO: 120                                     
-[$, id, =, function, (, type, id]                 				REDUCE ACTION: par->[type, id]                    
-[$, id, =, function, (, par]                      				REDUCE ACTION: pars->[par]                        
-[$, id, =, function, (, pars]                     				SHIFT TO: 118                                     
-[$, id, =, function, (, pars, )]                  				SHIFT TO: 20                                      
-[$, id, =, function, (, pars, ), {]               				SHIFT TO: 16                                      
-[$, id, =, function, (, pars, ), {, integer]      				REDUCE ACTION: type->[integer]                    
-[$, id, =, function, (, pars, ), {, type]         				SHIFT TO: 14                                      
-[$, id, =, function, (, pars, ), {, type, id]     				SHIFT TO: 28                                      
-[$, id, =, function, (, pars, ), {, type, id, []  				SHIFT TO: 46                                      
-[$, id, =, function, (, pars, ), {, type, id, [, int]				SHIFT TO: 69                                      
-[$, id, =, function, (, pars, ), {, type, id, [, int, ]]				SHIFT TO: 28                                      
-[$, id, =, function, (, pars, ), {, type, id, [, int, ], []				SHIFT TO: 46                                      
-[$, id, =, function, (, pars, ), {, type, id, [, int, ], [, int]				SHIFT TO: 69                                      
-[$, id, =, function, (, pars, ), {, type, id, [, int, ], [, int, ]]				REDUCE ACTION: Arrv->[eps]                        
-[$, id, =, function, (, pars, ), {, type, id, [, int, ], [, int, ], Arrv]				REDUCE ACTION: Arrv->[[, int, ], Arrv]            
-[$, id, =, function, (, pars, ), {, type, id, [, int, ], Arrv]				REDUCE ACTION: Arrv->[[, int, ], Arrv]            
-[$, id, =, function, (, pars, ), {, type, id, Arrv]				REDUCE ACTION: Arr->[id, Arrv]                    
-[$, id, =, function, (, pars, ), {, type, Arr]    				REDUCE ACTION: Define->[type, Arr]                
-[$, id, =, function, (, pars, ), {, Define]       				SHIFT TO: 134                                     
-[$, id, =, function, (, pars, ), {, Define, ;]    				SHIFT TO: 16                                      
-[$, id, =, function, (, pars, ), {, Define, ;, integer]				REDUCE ACTION: type->[integer]                    
-[$, id, =, function, (, pars, ), {, Define, ;, type]				SHIFT TO: 14                                      
-[$, id, =, function, (, pars, ), {, Define, ;, type, id]				SHIFT TO: 28                                      
-[$, id, =, function, (, pars, ), {, Define, ;, type, id, []				SHIFT TO: 46                                      
-[$, id, =, function, (, pars, ), {, Define, ;, type, id, [, int]				SHIFT TO: 69                                      
-[$, id, =, function, (, pars, ), {, Define, ;, type, id, [, int, ]]				SHIFT TO: 28                                      
-[$, id, =, function, (, pars, ), {, Define, ;, type, id, [, int, ], []				SHIFT TO: 46                                      
-[$, id, =, function, (, pars, ), {, Define, ;, type, id, [, int, ], [, int]				SHIFT TO: 69                                      
-[$, id, =, function, (, pars, ), {, Define, ;, type, id, [, int, ], [, int, ]]				REDUCE ACTION: Arrv->[eps]                        
-[$, id, =, function, (, pars, ), {, Define, ;, type, id, [, int, ], [, int, ], Arrv]				REDUCE ACTION: Arrv->[[, int, ], Arrv]            
-[$, id, =, function, (, pars, ), {, Define, ;, type, id, [, int, ], Arrv]				REDUCE ACTION: Arrv->[[, int, ], Arrv]            
-[$, id, =, function, (, pars, ), {, Define, ;, type, id, Arrv]				REDUCE ACTION: Arr->[id, Arrv]                    
-[$, id, =, function, (, pars, ), {, Define, ;, type, Arr]				REDUCE ACTION: Define->[type, Arr]                
-[$, id, =, function, (, pars, ), {, Define, ;, Define]				SHIFT TO: 134                                     
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;]				SHIFT TO: 16                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, integer]				REDUCE ACTION: type->[integer]                    
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, type]				SHIFT TO: 14                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, type, id]				REDUCE ACTION: Arrv->[eps]                        
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, type, id, Arrv]				REDUCE ACTION: Arr->[id, Arrv]                    
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, type, Arr]				REDUCE ACTION: Define->[type, Arr]                
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define]				SHIFT TO: 134                                     
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;]				SHIFT TO: 16                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, integer]				REDUCE ACTION: type->[integer]                    
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, type]				SHIFT TO: 14                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, type, id]				REDUCE ACTION: Arrv->[eps]                        
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, type, id, Arrv]				REDUCE ACTION: Arr->[id, Arrv]                    
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, type, Arr]				REDUCE ACTION: Define->[type, Arr]                
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define]				SHIFT TO: 134                                     
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;]				SHIFT TO: 11                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for]				SHIFT TO: 23                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (]				SHIFT TO: 41                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, id]				REDUCE ACTION: Arrv->[eps]                        
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, id, Arrv]				REDUCE ACTION: Arr->[id, Arrv]                    
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, Arr]				REDUCE ACTION: cal->[Arr]                         
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal]				SHIFT TO: 57                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, =]				SHIFT TO: 39                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, =, num]				REDUCE ACTION: cal->[num]                         
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, =, cal]				REDUCE ACTION: cal->[cal, =, cal]                 
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal]				SHIFT TO: 50                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;]				SHIFT TO: 41                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, id]				REDUCE ACTION: Arrv->[eps]                        
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, id, Arrv]				REDUCE ACTION: Arr->[id, Arrv]                    
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, Arr]				REDUCE ACTION: cal->[Arr]                         
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal]				SHIFT TO: 56                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, <]				SHIFT TO: 37                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, <, int]				REDUCE ACTION: cal->[int]                         
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, <, cal]				REDUCE ACTION: cal->[cal, <, cal]                 
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal]				SHIFT TO: 103                                     
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;]				SHIFT TO: 41                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, id]				REDUCE ACTION: Arrv->[eps]                        
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, id, Arrv]				REDUCE ACTION: Arr->[id, Arrv]                    
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, Arr]				REDUCE ACTION: cal->[Arr]                         
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal]				SHIFT TO: 51                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, +]				SHIFT TO: 74                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, +, +]				REDUCE ACTION: cal->[cal, +, +]                   
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal]				SHIFT TO: 128                                     
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, )]				SHIFT TO: 20                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {]				SHIFT TO: 11                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for]				SHIFT TO: 23                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (]				SHIFT TO: 41                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, id]				REDUCE ACTION: Arrv->[eps]                        
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, id, Arrv]				REDUCE ACTION: Arr->[id, Arrv]                    
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, Arr]				REDUCE ACTION: cal->[Arr]                         
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal]				SHIFT TO: 57                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, =]				SHIFT TO: 39                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, =, num]				REDUCE ACTION: cal->[num]                         
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, =, cal]				REDUCE ACTION: cal->[cal, =, cal]                 
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal]				SHIFT TO: 50                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;]				SHIFT TO: 41                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, id]				REDUCE ACTION: Arrv->[eps]                        
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, id, Arrv]				REDUCE ACTION: Arr->[id, Arrv]                    
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, Arr]				REDUCE ACTION: cal->[Arr]                         
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal]				SHIFT TO: 56                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, <]				SHIFT TO: 37                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, <, int]				REDUCE ACTION: cal->[int]                         
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, <, cal]				REDUCE ACTION: cal->[cal, <, cal]                 
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal]				SHIFT TO: 103                                     
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;]				SHIFT TO: 41                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, id]				REDUCE ACTION: Arrv->[eps]                        
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, id, Arrv]				REDUCE ACTION: Arr->[id, Arrv]                    
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, Arr]				REDUCE ACTION: cal->[Arr]                         
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal]				SHIFT TO: 51                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, +]				SHIFT TO: 74                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, +, +]				REDUCE ACTION: cal->[cal, +, +]                   
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal]				SHIFT TO: 128                                     
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, )]				SHIFT TO: 20                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {]				SHIFT TO: 14                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, id]				SHIFT TO: 28                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, id, []				SHIFT TO: 145                                     
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, id, [, id]				SHIFT TO: 146                                     
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, id, [, id, ]]				SHIFT TO: 28                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, id, [, id, ], []				SHIFT TO: 145                                     
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, id, [, id, ], [, id]				SHIFT TO: 146                                     
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, id, [, id, ], [, id, ]]				REDUCE ACTION: Arrv->[eps]                        
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, id, [, id, ], [, id, ], Arrv]				REDUCE ACTION: Arrv->[[, id, ], Arrv]             
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, id, [, id, ], Arrv]				REDUCE ACTION: Arrv->[[, id, ], Arrv]             
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, id, Arrv]				REDUCE ACTION: Arr->[id, Arrv]                    
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, Arr]				SHIFT TO: 30                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, Arr, =]				SHIFT TO: 41                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, Arr, =, id]				REDUCE ACTION: Arrv->[eps]                        
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, Arr, =, id, Arrv]				REDUCE ACTION: Arr->[id, Arrv]                    
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, Arr, =, Arr]				REDUCE ACTION: cal->[Arr]                         
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, Arr, =, cal]				SHIFT TO: 51                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, Arr, =, cal, +]				SHIFT TO: 41                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, Arr, =, cal, +, id]				REDUCE ACTION: Arrv->[eps]                        
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, Arr, =, cal, +, id, Arrv]				REDUCE ACTION: Arr->[id, Arrv]                    
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, Arr, =, cal, +, Arr]				REDUCE ACTION: cal->[Arr]                         
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, Arr, =, cal, +, cal]				REDUCE ACTION: cal->[cal, +, cal]                 
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, Arr, =, cal]				REDUCE ACTION: assign->[=, cal]                   
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, Arr, assign]				REDUCE ACTION: AssExp->[Arr, assgin]              
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp]				SHIFT TO: 135                                     
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;]				SHIFT TO: 12                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if]				SHIFT TO: 24                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (]				SHIFT TO: 41                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, id]				REDUCE ACTION: Arrv->[eps]                        
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, id, Arrv]				REDUCE ACTION: Arr->[id, Arrv]                    
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, Arr]				REDUCE ACTION: cal->[Arr]                         
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, cal]				SHIFT TO: 55                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, cal, >]				SHIFT TO: 41                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, cal, >, id]				REDUCE ACTION: Arrv->[eps]                        
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, cal, >, id, Arrv]				REDUCE ACTION: Arr->[id, Arrv]                    
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, cal, >, Arr]				REDUCE ACTION: cal->[Arr]                         
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, cal, >, cal]				REDUCE ACTION: cal->[cal, >, cal]                 
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, cal]				SHIFT TO: 66                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, cal, )]				SHIFT TO: 14                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, cal, ), id]				SHIFT TO: 28                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, cal, ), id, []				SHIFT TO: 145                                     
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, cal, ), id, [, id]				SHIFT TO: 146                                     
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, cal, ), id, [, id, ]]				SHIFT TO: 28                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, cal, ), id, [, id, ], []				SHIFT TO: 145                                     
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, cal, ), id, [, id, ], [, id]				SHIFT TO: 146                                     
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, cal, ), id, [, id, ], [, id, ]]				REDUCE ACTION: Arrv->[eps]                        
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, cal, ), id, [, id, ], [, id, ], Arrv]				REDUCE ACTION: Arrv->[[, id, ], Arrv]             
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, cal, ), id, [, id, ], Arrv]				REDUCE ACTION: Arrv->[[, id, ], Arrv]             
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, cal, ), id, Arrv]				REDUCE ACTION: Arr->[id, Arrv]                    
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, cal, ), Arr]				SHIFT TO: 30                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, cal, ), Arr, =]				SHIFT TO: 41                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, cal, ), Arr, =, id]				REDUCE ACTION: Arrv->[eps]                        
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, cal, ), Arr, =, id, Arrv]				REDUCE ACTION: Arr->[id, Arrv]                    
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, cal, ), Arr, =, Arr]				REDUCE ACTION: cal->[Arr]                         
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, cal, ), Arr, =, cal]				SHIFT TO: 53                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, cal, ), Arr, =, cal, *]				SHIFT TO: 41                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, cal, ), Arr, =, cal, *, id]				REDUCE ACTION: Arrv->[eps]                        
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, cal, ), Arr, =, cal, *, id, Arrv]				REDUCE ACTION: Arr->[id, Arrv]                    
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, cal, ), Arr, =, cal, *, Arr]				REDUCE ACTION: cal->[Arr]                         
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, cal, ), Arr, =, cal, *, cal]				REDUCE ACTION: cal->[cal, *, cal]                 
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, cal, ), Arr, =, cal]				SHIFT TO: 51                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, cal, ), Arr, =, cal, +]				SHIFT TO: 41                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, cal, ), Arr, =, cal, +, id]				REDUCE ACTION: Arrv->[eps]                        
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, cal, ), Arr, =, cal, +, id, Arrv]				REDUCE ACTION: Arr->[id, Arrv]                    
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, cal, ), Arr, =, cal, +, Arr]				REDUCE ACTION: cal->[Arr]                         
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, cal, ), Arr, =, cal, +, cal]				REDUCE ACTION: cal->[cal, +, cal]                 
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, cal, ), Arr, =, cal]				REDUCE ACTION: assign->[=, cal]                   
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, cal, ), Arr, assign]				REDUCE ACTION: AssExp->[Arr, assgin]              
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, cal, ), AssExp]				SHIFT TO: 135                                     
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, cal, ), AssExp, ;]				REDUCE ACTION: exp->[eps]                         
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, cal, ), AssExp, ;, exp]				REDUCE ACTION: exp->[AssExp, ;, exp]              
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, cal, ), exp]				SHIFT TO: 116                                     
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, cal, ), exp, else]				SHIFT TO: 14                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, cal, ), exp, else, id]				SHIFT TO: 28                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, cal, ), exp, else, id, []				SHIFT TO: 145                                     
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, cal, ), exp, else, id, [, id]				SHIFT TO: 146                                     
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, cal, ), exp, else, id, [, id, ]]				SHIFT TO: 28                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, cal, ), exp, else, id, [, id, ], []				SHIFT TO: 145                                     
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, cal, ), exp, else, id, [, id, ], [, id]				SHIFT TO: 146                                     
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, cal, ), exp, else, id, [, id, ], [, id, ]]				REDUCE ACTION: Arrv->[eps]                        
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, cal, ), exp, else, id, [, id, ], [, id, ], Arrv]				REDUCE ACTION: Arrv->[[, id, ], Arrv]             
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, cal, ), exp, else, id, [, id, ], Arrv]				REDUCE ACTION: Arrv->[[, id, ], Arrv]             
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, cal, ), exp, else, id, Arrv]				REDUCE ACTION: Arr->[id, Arrv]                    
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, cal, ), exp, else, Arr]				SHIFT TO: 30                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, cal, ), exp, else, Arr, =]				SHIFT TO: 41                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, cal, ), exp, else, Arr, =, id]				REDUCE ACTION: Arrv->[eps]                        
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, cal, ), exp, else, Arr, =, id, Arrv]				REDUCE ACTION: Arr->[id, Arrv]                    
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, cal, ), exp, else, Arr, =, Arr]				REDUCE ACTION: cal->[Arr]                         
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, cal, ), exp, else, Arr, =, cal]				SHIFT TO: 52                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, cal, ), exp, else, Arr, =, cal, -]				SHIFT TO: 41                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, cal, ), exp, else, Arr, =, cal, -, id]				REDUCE ACTION: Arrv->[eps]                        
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, cal, ), exp, else, Arr, =, cal, -, id, Arrv]				REDUCE ACTION: Arr->[id, Arrv]                    
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, cal, ), exp, else, Arr, =, cal, -, Arr]				REDUCE ACTION: cal->[Arr]                         
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, cal, ), exp, else, Arr, =, cal, -, cal]				REDUCE ACTION: cal->[cal, -, cal]                 
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, cal, ), exp, else, Arr, =, cal]				SHIFT TO: 54                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, cal, ), exp, else, Arr, =, cal, /]				SHIFT TO: 41                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, cal, ), exp, else, Arr, =, cal, /, id]				REDUCE ACTION: Arrv->[eps]                        
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, cal, ), exp, else, Arr, =, cal, /, id, Arrv]				REDUCE ACTION: Arr->[id, Arrv]                    
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, cal, ), exp, else, Arr, =, cal, /, Arr]				REDUCE ACTION: cal->[Arr]                         
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, cal, ), exp, else, Arr, =, cal, /, cal]				REDUCE ACTION: cal->[cal, /, cal]                 
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, cal, ), exp, else, Arr, =, cal]				REDUCE ACTION: assign->[=, cal]                   
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, cal, ), exp, else, Arr, assign]				REDUCE ACTION: AssExp->[Arr, assgin]              
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, cal, ), exp, else, AssExp]				SHIFT TO: 135                                     
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, cal, ), exp, else, AssExp, ;]				REDUCE ACTION: exp->[eps]                         
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, cal, ), exp, else, AssExp, ;, exp]				REDUCE ACTION: exp->[AssExp, ;, exp]              
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, if, (, cal, ), exp, else, exp]				REDUCE ACTION: If->[if, (, cal, ), exp, else, exp]
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, If]				REDUCE ACTION: exp->[eps]                         
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, If, exp]				REDUCE ACTION: exp->[If, exp]                     
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, AssExp, ;, exp]				REDUCE ACTION: exp->[AssExp, ;, exp]              
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, exp]				SHIFT TO: 49                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), {, exp, }]				REDUCE ACTION: block->[{, exp, }]                 
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, for, (, cal, ;, cal, ;, cal, ), block]				REDUCE ACTION: For->[for, (, cal, ;, cal, ;, cal, ), block]
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, For]				REDUCE ACTION: exp->[eps]                         
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, For, exp]				REDUCE ACTION: exp->[For, exp]                    
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, exp]				SHIFT TO: 49                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), {, exp, }]				REDUCE ACTION: block->[{, exp, }]                 
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, for, (, cal, ;, cal, ;, cal, ), block]				REDUCE ACTION: For->[for, (, cal, ;, cal, ;, cal, ), block]
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For]				SHIFT TO: 16                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, integer]				REDUCE ACTION: type->[integer]                    
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, type]				SHIFT TO: 14                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, type, id]				REDUCE ACTION: Arrv->[eps]                        
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, type, id, Arrv]				REDUCE ACTION: Arr->[id, Arrv]                    
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, type, Arr]				REDUCE ACTION: Define->[type, Arr]                
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define]				SHIFT TO: 134                                     
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;]				SHIFT TO: 14                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, id]				REDUCE ACTION: Arrv->[eps]                        
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, id, Arrv]				REDUCE ACTION: Arr->[id, Arrv]                    
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, Arr]				SHIFT TO: 30                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, Arr, =]				SHIFT TO: 41                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, Arr, =, id]				REDUCE ACTION: Arrv->[eps]                        
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, Arr, =, id, Arrv]				REDUCE ACTION: Arr->[id, Arrv]                    
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, Arr, =, Arr]				REDUCE ACTION: cal->[Arr]                         
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, Arr, =, cal]				SHIFT TO: 71                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, Arr, =, cal, =]				SHIFT TO: 41                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, Arr, =, cal, =, id]				REDUCE ACTION: Arrv->[eps]                        
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, Arr, =, cal, =, id, Arrv]				REDUCE ACTION: Arr->[id, Arrv]                    
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, Arr, =, cal, =, Arr]				REDUCE ACTION: cal->[Arr]                         
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, Arr, =, cal, =, cal]				SHIFT TO: 71                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, Arr, =, cal, =, cal, =]				SHIFT TO: 39                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, Arr, =, cal, =, cal, =, num]				REDUCE ACTION: cal->[num]                         
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, Arr, =, cal, =, cal, =, cal]				REDUCE ACTION: assign->[=, cal]                   
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, Arr, =, cal, =, cal, assign]				REDUCE ACTION: assign->[=, cal, assgin]           
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, Arr, =, cal, assign]				REDUCE ACTION: assign->[=, cal, assgin]           
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, Arr, assign]				REDUCE ACTION: AssExp->[Arr, assgin]              
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp]				SHIFT TO: 135                                     
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;]				SHIFT TO: 13                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat]				SHIFT TO: 20                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {]				SHIFT TO: 12                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if]				SHIFT TO: 24                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (]				SHIFT TO: 41                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, id]				REDUCE ACTION: Arrv->[eps]                        
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, id, Arrv]				REDUCE ACTION: Arr->[id, Arrv]                    
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, Arr]				REDUCE ACTION: cal->[Arr]                         
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal]				SHIFT TO: 55                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, >]				SHIFT TO: 41                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, >, id]				REDUCE ACTION: Arrv->[eps]                        
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, >, id, Arrv]				REDUCE ACTION: Arr->[id, Arrv]                    
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, >, Arr]				REDUCE ACTION: cal->[Arr]                         
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, >, cal]				REDUCE ACTION: cal->[cal, >, cal]                 
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal]				SHIFT TO: 66                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, )]				SHIFT TO: 20                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), {]				SHIFT TO: 14                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), {, id]				REDUCE ACTION: Arrv->[eps]                        
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), {, id, Arrv]				REDUCE ACTION: Arr->[id, Arrv]                    
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), {, Arr]				REDUCE ACTION: cal->[Arr]                         
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), {, cal]				SHIFT TO: 51                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), {, cal, +]				SHIFT TO: 74                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), {, cal, +, +]				REDUCE ACTION: cal->[cal, +, +]                   
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), {, cal]				SHIFT TO: 143                                     
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), {, cal, ;]				SHIFT TO: 14                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), {, cal, ;, id]				REDUCE ACTION: Arrv->[eps]                        
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), {, cal, ;, id, Arrv]				REDUCE ACTION: Arr->[id, Arrv]                    
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), {, cal, ;, Arr]				REDUCE ACTION: cal->[Arr]                         
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), {, cal, ;, cal]				SHIFT TO: 52                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), {, cal, ;, cal, -]				SHIFT TO: 77                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), {, cal, ;, cal, -, -]				REDUCE ACTION: cal->[cal, -, -]                   
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), {, cal, ;, cal]				SHIFT TO: 143                                     
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), {, cal, ;, cal, ;]				REDUCE ACTION: exp->[eps]                         
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), {, cal, ;, cal, ;, exp]				REDUCE ACTION: exp->[cal, ;, exp]                 
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), {, cal, ;, exp]				REDUCE ACTION: exp->[cal, ;, exp]                 
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), {, exp]				SHIFT TO: 49                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), {, exp, }]				REDUCE ACTION: block->[{, exp, }]                 
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), block]				REDUCE ACTION: exp->[block]                       
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp]				SHIFT TO: 116                                     
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else]				SHIFT TO: 14                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, id]				REDUCE ACTION: Arrv->[eps]                        
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, id, Arrv]				REDUCE ACTION: Arr->[id, Arrv]                    
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, Arr]				REDUCE ACTION: cal->[Arr]                         
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal]				SHIFT TO: 51                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal, +]				SHIFT TO: 74                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal, +, +]				REDUCE ACTION: cal->[cal, +, +]                   
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal]				SHIFT TO: 143                                     
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal, ;]				SHIFT TO: 12                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal, ;, if]				SHIFT TO: 24                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal, ;, if, (]				SHIFT TO: 41                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal, ;, if, (, id]				REDUCE ACTION: Arrv->[eps]                        
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal, ;, if, (, id, Arrv]				REDUCE ACTION: Arr->[id, Arrv]                    
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal, ;, if, (, Arr]				REDUCE ACTION: cal->[Arr]                         
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal, ;, if, (, cal]				SHIFT TO: 56                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal, ;, if, (, cal, <]				SHIFT TO: 37                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal, ;, if, (, cal, <, int]				REDUCE ACTION: cal->[int]                         
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal, ;, if, (, cal, <, cal]				SHIFT TO: 60                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal, ;, if, (, cal, <, cal, &]				SHIFT TO: 90                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal, ;, if, (, cal, <, cal, &, &]				SHIFT TO: 41                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal, ;, if, (, cal, <, cal, &, &, id]				REDUCE ACTION: Arrv->[eps]                        
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal, ;, if, (, cal, <, cal, &, &, id, Arrv]				REDUCE ACTION: Arr->[id, Arrv]                    
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal, ;, if, (, cal, <, cal, &, &, Arr]				REDUCE ACTION: cal->[Arr]                         
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal, ;, if, (, cal, <, cal, &, &, cal]				SHIFT TO: 56                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal, ;, if, (, cal, <, cal, &, &, cal, <]				SHIFT TO: 37                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal, ;, if, (, cal, <, cal, &, &, cal, <, int]				REDUCE ACTION: cal->[int]                         
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal, ;, if, (, cal, <, cal, &, &, cal, <, cal]				REDUCE ACTION: cal->[cal, <, cal]                 
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal, ;, if, (, cal, <, cal, &, &, cal]				REDUCE ACTION: cal->[cal, &, &, cal]              
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal, ;, if, (, cal, <, cal]				REDUCE ACTION: cal->[cal, <, cal]                 
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal, ;, if, (, cal]				SHIFT TO: 66                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal, ;, if, (, cal, )]				SHIFT TO: 14                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal, ;, if, (, cal, ), id]				REDUCE ACTION: Arrv->[eps]                        
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal, ;, if, (, cal, ), id, Arrv]				REDUCE ACTION: Arr->[id, Arrv]                    
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal, ;, if, (, cal, ), Arr]				SHIFT TO: 30                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal, ;, if, (, cal, ), Arr, =]				SHIFT TO: 41                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal, ;, if, (, cal, ), Arr, =, id]				REDUCE ACTION: Arrv->[eps]                        
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal, ;, if, (, cal, ), Arr, =, id, Arrv]				REDUCE ACTION: Arr->[id, Arrv]                    
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal, ;, if, (, cal, ), Arr, =, Arr]				REDUCE ACTION: cal->[Arr]                         
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal, ;, if, (, cal, ), Arr, =, cal]				SHIFT TO: 51                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal, ;, if, (, cal, ), Arr, =, cal, +]				SHIFT TO: 41                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal, ;, if, (, cal, ), Arr, =, cal, +, id]				SHIFT TO: 28                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal, ;, if, (, cal, ), Arr, =, cal, +, id, []				SHIFT TO: 145                                     
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal, ;, if, (, cal, ), Arr, =, cal, +, id, [, id]				SHIFT TO: 146                                     
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal, ;, if, (, cal, ), Arr, =, cal, +, id, [, id, ]]				SHIFT TO: 28                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal, ;, if, (, cal, ), Arr, =, cal, +, id, [, id, ], []				SHIFT TO: 145                                     
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal, ;, if, (, cal, ), Arr, =, cal, +, id, [, id, ], [, id]				SHIFT TO: 146                                     
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal, ;, if, (, cal, ), Arr, =, cal, +, id, [, id, ], [, id, ]]				REDUCE ACTION: Arrv->[eps]                        
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal, ;, if, (, cal, ), Arr, =, cal, +, id, [, id, ], [, id, ], Arrv]				REDUCE ACTION: Arrv->[[, id, ], Arrv]             
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal, ;, if, (, cal, ), Arr, =, cal, +, id, [, id, ], Arrv]				REDUCE ACTION: Arrv->[[, id, ], Arrv]             
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal, ;, if, (, cal, ), Arr, =, cal, +, id, Arrv]				REDUCE ACTION: Arr->[id, Arrv]                    
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal, ;, if, (, cal, ), Arr, =, cal, +, Arr]				REDUCE ACTION: cal->[Arr]                         
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal, ;, if, (, cal, ), Arr, =, cal, +, cal]				SHIFT TO: 53                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal, ;, if, (, cal, ), Arr, =, cal, +, cal, *]				SHIFT TO: 41                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal, ;, if, (, cal, ), Arr, =, cal, +, cal, *, id]				SHIFT TO: 28                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal, ;, if, (, cal, ), Arr, =, cal, +, cal, *, id, []				SHIFT TO: 145                                     
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal, ;, if, (, cal, ), Arr, =, cal, +, cal, *, id, [, id]				SHIFT TO: 146                                     
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal, ;, if, (, cal, ), Arr, =, cal, +, cal, *, id, [, id, ]]				SHIFT TO: 28                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal, ;, if, (, cal, ), Arr, =, cal, +, cal, *, id, [, id, ], []				SHIFT TO: 145                                     
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal, ;, if, (, cal, ), Arr, =, cal, +, cal, *, id, [, id, ], [, id]				SHIFT TO: 146                                     
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal, ;, if, (, cal, ), Arr, =, cal, +, cal, *, id, [, id, ], [, id, ]]				REDUCE ACTION: Arrv->[eps]                        
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal, ;, if, (, cal, ), Arr, =, cal, +, cal, *, id, [, id, ], [, id, ], Arrv]				REDUCE ACTION: Arrv->[[, id, ], Arrv]             
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal, ;, if, (, cal, ), Arr, =, cal, +, cal, *, id, [, id, ], Arrv]				REDUCE ACTION: Arrv->[[, id, ], Arrv]             
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal, ;, if, (, cal, ), Arr, =, cal, +, cal, *, id, Arrv]				REDUCE ACTION: Arr->[id, Arrv]                    
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal, ;, if, (, cal, ), Arr, =, cal, +, cal, *, Arr]				REDUCE ACTION: cal->[Arr]                         
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal, ;, if, (, cal, ), Arr, =, cal, +, cal, *, cal]				REDUCE ACTION: cal->[cal, *, cal]                 
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal, ;, if, (, cal, ), Arr, =, cal, +, cal]				REDUCE ACTION: cal->[cal, +, cal]                 
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal, ;, if, (, cal, ), Arr, =, cal]				REDUCE ACTION: assign->[=, cal]                   
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal, ;, if, (, cal, ), Arr, assign]				REDUCE ACTION: AssExp->[Arr, assgin]              
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal, ;, if, (, cal, ), AssExp]				SHIFT TO: 135                                     
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal, ;, if, (, cal, ), AssExp, ;]				REDUCE ACTION: exp->[eps]                         
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal, ;, if, (, cal, ), AssExp, ;, exp]				REDUCE ACTION: exp->[AssExp, ;, exp]              
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal, ;, if, (, cal, ), exp]				SHIFT TO: 116                                     
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal, ;, if, (, cal, ), exp, else]				SHIFT TO: 7                                       
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal, ;, if, (, cal, ), exp, else, break]				SHIFT TO: 133                                     
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal, ;, if, (, cal, ), exp, else, break, ;]				REDUCE ACTION: exp->[eps]                         
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal, ;, if, (, cal, ), exp, else, break, ;, exp]				REDUCE ACTION: exp->[break, ;, exp]               
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal, ;, if, (, cal, ), exp, else, exp]				REDUCE ACTION: If->[if, (, cal, ), exp, else, exp]
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal, ;, If]				REDUCE ACTION: exp->[eps]                         
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal, ;, If, exp]				REDUCE ACTION: exp->[If, exp]                     
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, cal, ;, exp]				REDUCE ACTION: exp->[cal, ;, exp]                 
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, if, (, cal, ), exp, else, exp]				REDUCE ACTION: If->[if, (, cal, ), exp, else, exp]
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, If]				REDUCE ACTION: exp->[eps]                         
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, If, exp]				REDUCE ACTION: exp->[If, exp]                     
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, exp]				SHIFT TO: 49                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, {, exp, }]				REDUCE ACTION: block->[{, exp, }]                 
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, block]				SHIFT TO: 44                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, block, until]				SHIFT TO: 67                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, block, until, (]				SHIFT TO: 41                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, block, until, (, id]				REDUCE ACTION: Arrv->[eps]                        
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, block, until, (, id, Arrv]				REDUCE ACTION: Arr->[id, Arrv]                    
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, block, until, (, Arr]				REDUCE ACTION: cal->[Arr]                         
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, block, until, (, cal]				SHIFT TO: 55                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, block, until, (, cal, >]				SHIFT TO: 84                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, block, until, (, cal, >, =]				SHIFT TO: 37                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, block, until, (, cal, >, =, int]				REDUCE ACTION: cal->[int]                         
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, block, until, (, cal, >, =, cal]				REDUCE ACTION: cal->[cal, >, =, cal]              
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, block, until, (, cal]				SHIFT TO: 117                                     
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, repeat, block, until, (, cal, )]				REDUCE ACTION: Repeat->[repeat, block, until, (, cal, )]
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, Repeat]				SHIFT TO: 6                                       
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, Repeat, return]				SHIFT TO: 22                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, Repeat, return, (]				SHIFT TO: 14                                      
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, Repeat, return, (, id]				REDUCE ACTION: Arrv->[eps]                        
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, Repeat, return, (, id, Arrv]				REDUCE ACTION: Arr->[id, Arrv]                    
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, Repeat, return, (, Arr]				REDUCE ACTION: cal->[Arr]                         
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, Repeat, return, (, cal]				SHIFT TO: 148                                     
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, Repeat, return, (, cal, )]				SHIFT TO: 149                                     
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, Repeat, return, (, cal, ), ;]				REDUCE ACTION: exp->[eps]                         
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, Repeat, return, (, cal, ), ;, exp]				REDUCE ACTION: exp->[return, (, cal, ), ;, exp]   
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, Repeat, exp]				REDUCE ACTION: exp->[Repeat, exp]                 
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, AssExp, ;, exp]				REDUCE ACTION: exp->[AssExp, ;, exp]              
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, Define, ;, exp]				REDUCE ACTION: exp->[Define, ;, exp]              
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, For, exp]				REDUCE ACTION: exp->[For, exp]                    
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, Define, ;, exp]				REDUCE ACTION: exp->[Define, ;, exp]              
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, Define, ;, exp]				REDUCE ACTION: exp->[Define, ;, exp]              
-[$, id, =, function, (, pars, ), {, Define, ;, Define, ;, exp]				REDUCE ACTION: exp->[Define, ;, exp]              
-[$, id, =, function, (, pars, ), {, Define, ;, exp]				REDUCE ACTION: exp->[Define, ;, exp]              
-[$, id, =, function, (, pars, ), {, exp]          				SHIFT TO: 49                                      
-[$, id, =, function, (, pars, ), {, exp, }]       				REDUCE ACTION: block->[{, exp, }]                 
-[$, id, =, function, (, pars, ), block]           				REDUCE ACTION: Defun->[id, =, function, (, pars, ), block]
-[$, Defun]                                        				REDUCE ACTION: exp->[eps]                         
-[$, Defun, exp]                                   				REDUCE ACTION: exp->[Defun, exp]                  
-[$, exp]                                          				REDUCE ACTION: s'->[exp]                          
-[$, s']
+[$:]                                              				SHIFT TO: 14                                      
+[$:, id:i]                                        				REDUCE ACTION: Arrv->[eps]                        
+[$:, id:i, Arrv:]                                 				REDUCE ACTION: Arr->[id, Arrv]                    
+[$:, Arr:i]                                       				SHIFT TO: 30                                      
+[$:, Arr:i, =:]                                   				SHIFT TO: 37                                      
+[$:, Arr:i, =:, int:1]                            				REDUCE ACTION: cal->[int]                         
+[$:, Arr:i, =:, cal:1]                            				SHIFT TO: 53                                      
+[$:, Arr:i, =:, cal:1, *:]                        				SHIFT TO: 37                                      
+[$:, Arr:i, =:, cal:1, *:, int:1]                 				REDUCE ACTION: cal->[int]                         
+[$:, Arr:i, =:, cal:1, *:, cal:1]                 				REDUCE ACTION: cal->[cal, *, cal]                 
+[$:, Arr:i, =:, cal:t1]                           				SHIFT TO: 53                                      
+[$:, Arr:i, =:, cal:t1, *:]                       				SHIFT TO: 37                                      
+[$:, Arr:i, =:, cal:t1, *:, int:2]                				REDUCE ACTION: cal->[int]                         
+[$:, Arr:i, =:, cal:t1, *:, cal:2]                				REDUCE ACTION: cal->[cal, *, cal]                 
+[$:, Arr:i, =:, cal:t2]                           				SHIFT TO: 51                                      
+[$:, Arr:i, =:, cal:t2, +:]                       				SHIFT TO: 37                                      
+[$:, Arr:i, =:, cal:t2, +:, int:3]                				REDUCE ACTION: cal->[int]                         
+[$:, Arr:i, =:, cal:t2, +:, cal:3]                				REDUCE ACTION: cal->[cal, +, cal]                 
+[$:, Arr:i, =:, cal:t3]                           				SHIFT TO: 52                                      
+[$:, Arr:i, =:, cal:t3, -:]                       				SHIFT TO: 34                                      
+[$:, Arr:i, =:, cal:t3, -:, (:]                   				SHIFT TO: 37                                      
+[$:, Arr:i, =:, cal:t3, -:, (:, int:4]            				REDUCE ACTION: cal->[int]                         
+[$:, Arr:i, =:, cal:t3, -:, (:, cal:4]            				SHIFT TO: 52                                      
+[$:, Arr:i, =:, cal:t3, -:, (:, cal:4, -:]        				SHIFT TO: 37                                      
+[$:, Arr:i, =:, cal:t3, -:, (:, cal:4, -:, int:5] 				REDUCE ACTION: cal->[int]                         
+[$:, Arr:i, =:, cal:t3, -:, (:, cal:4, -:, cal:5] 				REDUCE ACTION: cal->[cal, -, cal]                 
+[$:, Arr:i, =:, cal:t3, -:, (:, cal:t4]           				SHIFT TO: 91                                      
+[$:, Arr:i, =:, cal:t3, -:, (:, cal:t4, ):]       				REDUCE ACTION: cal->[(, cal, )]                   
+[$:, Arr:i, =:, cal:t3, -:, cal:t4]               				SHIFT TO: 53                                      
+[$:, Arr:i, =:, cal:t3, -:, cal:t4, *:]           				SHIFT TO: 37                                      
+[$:, Arr:i, =:, cal:t3, -:, cal:t4, *:, int:5]    				REDUCE ACTION: cal->[int]                         
+[$:, Arr:i, =:, cal:t3, -:, cal:t4, *:, cal:5]    				REDUCE ACTION: cal->[cal, *, cal]                 
+[$:, Arr:i, =:, cal:t3, -:, cal:t5]               				REDUCE ACTION: cal->[cal, -, cal]                 
+[$:, Arr:i, =:, cal:t6]                           				SHIFT TO: 52                                      
+[$:, Arr:i, =:, cal:t6, -:]                       				SHIFT TO: 37                                      
+[$:, Arr:i, =:, cal:t6, -:, int:6]                				REDUCE ACTION: cal->[int]                         
+[$:, Arr:i, =:, cal:t6, -:, cal:6]                				SHIFT TO: 54                                      
+[$:, Arr:i, =:, cal:t6, -:, cal:6, /:]            				SHIFT TO: 37                                      
+[$:, Arr:i, =:, cal:t6, -:, cal:6, /:, int:10]    				REDUCE ACTION: cal->[int]                         
+[$:, Arr:i, =:, cal:t6, -:, cal:6, /:, cal:10]    				REDUCE ACTION: cal->[cal, /, cal]                 
+[$:, Arr:i, =:, cal:t6, -:, cal:t7]               				REDUCE ACTION: cal->[cal, -, cal]                 
+[$:, Arr:i, =:, cal:t8]                           				REDUCE ACTION: assign->[=, cal]                   
+[$:, Arr:i, assign:t8]                            				REDUCE ACTION: AssExp->[Arr, assgin]              
+[$:, AssExp:]                                     				SHIFT TO: 135                                     
+[$:, AssExp:, ;:]                                 				REDUCE ACTION: exp->[eps]                         
+[$:, AssExp:, ;:, exp:]                           				REDUCE ACTION: exp->[AssExp, ;, exp]              
+[$:, exp:]                                        				REDUCE ACTION: s'->[exp]                          
+[$:, s':]

@@ -1,0 +1,17 @@
+KEYWORD function
+KEYWORD read
+KEYWORD write
+KEYWORD return
+KEYWORD break
+KEYWORD if
+KEYWORD else
+KEYWORD for
+KEYWORD repeat
+KEYWORD this is a placeholder for syn 10
+KEYWORD until
+KEYWORD do
+KEYWORD while
+KEYWORD integer
+KEYWORD double
+KEYWORD char
+IDENTIFIER i
