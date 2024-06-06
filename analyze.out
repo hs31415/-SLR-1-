@@ -1,77 +1,53 @@
 Symbol                                            	Action                                            
-[$::]                                             				SHIFT TO: 16                                      
-[$::, integer::]                                  				REDUCE ACTION: type->[integer]                    
-[$::, type:integer:]                              				SHIFT TO: 14                                      
-[$::, type:integer:, id:a:]                       				SHIFT TO: 28                                      
-[$::, type:integer:, id:a:, [::]                  				SHIFT TO: 46                                      
-[$::, type:integer:, id:a:, [::, int:5:]          				SHIFT TO: 69                                      
-[$::, type:integer:, id:a:, [::, int:5:, ]::]     				SHIFT TO: 28                                      
-[$::, type:integer:, id:a:, [::, int:5:, ]::, [::]				SHIFT TO: 46                                      
-[$::, type:integer:, id:a:, [::, int:5:, ]::, [::, int:10:]				SHIFT TO: 69                                      
-[$::, type:integer:, id:a:, [::, int:5:, ]::, [::, int:10:, ]::]				REDUCE ACTION: Arrv->[eps]                        
-[$::, type:integer:, id:a:, [::, int:5:, ]::, [::, int:10:, ]::, Arrv:4:]				REDUCE ACTION: Arrv->[[, int, ], Arrv]            
-[$::, type:integer:, id:a:, [::, int:5:, ]::, Arrv:40:]				REDUCE ACTION: Arrv->[[, int, ], Arrv]            
-[$::, type:integer:, id:a:, Arrv:200:]            				REDUCE ACTION: Arr->[id, Arrv]                    
-[$::, type:integer:, Arr:a:]                      				REDUCE ACTION: Define->[type, Arr]                
+[$::]                                             				SHIFT TO: 17                                      
+[$::, double::]                                   				REDUCE ACTION: type->[double]                     
+[$::, type:double:]                               				SHIFT TO: 14                                      
+[$::, type:double:, id:a:]                        				SHIFT TO: 28                                      
+[$::, type:double:, id:a:, [::]                   				SHIFT TO: 46                                      
+[$::, type:double:, id:a:, [::, int:5:]           				SHIFT TO: 69                                      
+[$::, type:double:, id:a:, [::, int:5:, ]::]      				SHIFT TO: 28                                      
+[$::, type:double:, id:a:, [::, int:5:, ]::, [::] 				SHIFT TO: 46                                      
+[$::, type:double:, id:a:, [::, int:5:, ]::, [::, int:10:]				SHIFT TO: 69                                      
+[$::, type:double:, id:a:, [::, int:5:, ]::, [::, int:10:, ]::]				REDUCE ACTION: Arrv->[eps]                        
+[$::, type:double:, id:a:, [::, int:5:, ]::, [::, int:10:, ]::, Arrv:8:]				REDUCE ACTION: Arrv->[[, int, ], Arrv]            
+[$::, type:double:, id:a:, [::, int:5:, ]::, Arrv:80:]				REDUCE ACTION: Arrv->[[, int, ], Arrv]            
+[$::, type:double:, id:a:, Arrv:400:]             				REDUCE ACTION: Arr->[id, Arrv]                    
+[$::, type:double:, Arr:a:]                       				REDUCE ACTION: Define->[type, Arr]                
 [$::, Define::]                                   				SHIFT TO: 134                                     
 [$::, Define::, ;::]                              				SHIFT TO: 14                                      
-[$::, Define::, ;::, id:i:]                       				REDUCE ACTION: Arrv->[eps]                        
-[$::, Define::, ;::, id:i:, Arrv:4:]              				REDUCE ACTION: Arr->[id, Arrv]                    
-[$::, Define::, ;::, Arr:i:4]                     				SHIFT TO: 30                                      
-[$::, Define::, ;::, Arr:i:4, =::]                				SHIFT TO: 37                                      
-[$::, Define::, ;::, Arr:i:4, =::, int:0:]        				REDUCE ACTION: cal->[int]                         
-[$::, Define::, ;::, Arr:i:4, =::, cal:0:]        				REDUCE ACTION: assign->[=, cal]                   
-[$::, Define::, ;::, Arr:i:4, assign:0:]          				REDUCE ACTION: AssExp->[Arr, assign]              
+[$::, Define::, ;::, id:y:]                       				REDUCE ACTION: Arrv->[eps]                        
+[$::, Define::, ;::, id:y:, Arrv:8:]              				REDUCE ACTION: Arr->[id, Arrv]                    
+[$::, Define::, ;::, Arr:y:8]                     				SHIFT TO: 30                                      
+[$::, Define::, ;::, Arr:y:8, =::]                				SHIFT TO: 41                                      
+[$::, Define::, ;::, Arr:y:8, =::, id:a:]         				SHIFT TO: 28                                      
+[$::, Define::, ;::, Arr:y:8, =::, id:a:, [::]    				SHIFT TO: 46                                      
+[$::, Define::, ;::, Arr:y:8, =::, id:a:, [::, int:2:]				SHIFT TO: 69                                      
+[$::, Define::, ;::, Arr:y:8, =::, id:a:, [::, int:2:, ]::]				SHIFT TO: 28                                      
+[$::, Define::, ;::, Arr:y:8, =::, id:a:, [::, int:2:, ]::, [::]				SHIFT TO: 46                                      
+[$::, Define::, ;::, Arr:y:8, =::, id:a:, [::, int:2:, ]::, [::, int:3:]				SHIFT TO: 69                                      
+[$::, Define::, ;::, Arr:y:8, =::, id:a:, [::, int:2:, ]::, [::, int:3:, ]::]				REDUCE ACTION: Arrv->[eps]                        
+[$::, Define::, ;::, Arr:y:8, =::, id:a:, [::, int:2:, ]::, [::, int:3:, ]::, Arrv:8:]				REDUCE ACTION: Arrv->[[, int, ], Arrv]            
+[$::, Define::, ;::, Arr:y:8, =::, id:a:, [::, int:2:, ]::, Arrv:t1:]				REDUCE ACTION: Arrv->[[, int, ], Arrv]            
+[$::, Define::, ;::, Arr:y:8, =::, id:a:, Arrv:t3:t3]				REDUCE ACTION: Arr->[id, Arrv]                    
+[$::, Define::, ;::, Arr:y:8, =::, Arr:a:t3]      				REDUCE ACTION: cal->[Arr]                         
+[$::, Define::, ;::, Arr:y:8, =::, cal:t5:]       				SHIFT TO: 51                                      
+[$::, Define::, ;::, Arr:y:8, =::, cal:t5:, +::]  				SHIFT TO: 41                                      
+[$::, Define::, ;::, Arr:y:8, =::, cal:t5:, +::, id:a:]				SHIFT TO: 28                                      
+[$::, Define::, ;::, Arr:y:8, =::, cal:t5:, +::, id:a:, [::]				SHIFT TO: 46                                      
+[$::, Define::, ;::, Arr:y:8, =::, cal:t5:, +::, id:a:, [::, int:1:]				SHIFT TO: 69                                      
+[$::, Define::, ;::, Arr:y:8, =::, cal:t5:, +::, id:a:, [::, int:1:, ]::]				SHIFT TO: 28                                      
+[$::, Define::, ;::, Arr:y:8, =::, cal:t5:, +::, id:a:, [::, int:1:, ]::, [::]				SHIFT TO: 46                                      
+[$::, Define::, ;::, Arr:y:8, =::, cal:t5:, +::, id:a:, [::, int:1:, ]::, [::, int:2:]				SHIFT TO: 69                                      
+[$::, Define::, ;::, Arr:y:8, =::, cal:t5:, +::, id:a:, [::, int:1:, ]::, [::, int:2:, ]::]				REDUCE ACTION: Arrv->[eps]                        
+[$::, Define::, ;::, Arr:y:8, =::, cal:t5:, +::, id:a:, [::, int:1:, ]::, [::, int:2:, ]::, Arrv:8:]				REDUCE ACTION: Arrv->[[, int, ], Arrv]            
+[$::, Define::, ;::, Arr:y:8, =::, cal:t5:, +::, id:a:, [::, int:1:, ]::, Arrv:t5:t3]				REDUCE ACTION: Arrv->[[, int, ], Arrv]            
+[$::, Define::, ;::, Arr:y:8, =::, cal:t5:, +::, id:a:, Arrv:t7:t7]				REDUCE ACTION: Arr->[id, Arrv]                    
+[$::, Define::, ;::, Arr:y:8, =::, cal:t5:, +::, Arr:a:t7]				REDUCE ACTION: cal->[Arr]                         
+[$::, Define::, ;::, Arr:y:8, =::, cal:t5:, +::, cal:t9:]				REDUCE ACTION: cal->[cal, +, cal]                 
+[$::, Define::, ;::, Arr:y:8, =::, cal:t10:]      				REDUCE ACTION: assign->[=, cal]                   
+[$::, Define::, ;::, Arr:y:8, assign:t10:]        				REDUCE ACTION: AssExp->[Arr, assign]              
 [$::, Define::, ;::, AssExp::]                    				SHIFT TO: 135                                     
-[$::, Define::, ;::, AssExp::, ;::]               				SHIFT TO: 14                                      
-[$::, Define::, ;::, AssExp::, ;::, id:x:]        				REDUCE ACTION: Arrv->[eps]                        
-[$::, Define::, ;::, AssExp::, ;::, id:x:, Arrv:4:]				REDUCE ACTION: Arr->[id, Arrv]                    
-[$::, Define::, ;::, AssExp::, ;::, Arr:x:4]      				SHIFT TO: 30                                      
-[$::, Define::, ;::, AssExp::, ;::, Arr:x:4, =::] 				SHIFT TO: 41                                      
-[$::, Define::, ;::, AssExp::, ;::, Arr:x:4, =::, id:a:]				SHIFT TO: 28                                      
-[$::, Define::, ;::, AssExp::, ;::, Arr:x:4, =::, id:a:, [::]				SHIFT TO: 145                                     
-[$::, Define::, ;::, AssExp::, ;::, Arr:x:4, =::, id:a:, [::, id:i:]				SHIFT TO: 146                                     
-[$::, Define::, ;::, AssExp::, ;::, Arr:x:4, =::, id:a:, [::, id:i:, ]::]				SHIFT TO: 28                                      
-[$::, Define::, ;::, AssExp::, ;::, Arr:x:4, =::, id:a:, [::, id:i:, ]::, [::]				SHIFT TO: 145                                     
-[$::, Define::, ;::, AssExp::, ;::, Arr:x:4, =::, id:a:, [::, id:i:, ]::, [::, id:i:]				SHIFT TO: 146                                     
-[$::, Define::, ;::, AssExp::, ;::, Arr:x:4, =::, id:a:, [::, id:i:, ]::, [::, id:i:, ]::]				REDUCE ACTION: Arrv->[eps]                        
-[$::, Define::, ;::, AssExp::, ;::, Arr:x:4, =::, id:a:, [::, id:i:, ]::, [::, id:i:, ]::, Arrv:4:]				REDUCE ACTION: Arrv->[[, id, ], Arrv]             
-[$::, Define::, ;::, AssExp::, ;::, Arr:x:4, =::, id:a:, [::, id:i:, ]::, Arrv:t1:]				REDUCE ACTION: Arrv->[[, id, ], Arrv]             
-[$::, Define::, ;::, AssExp::, ;::, Arr:x:4, =::, id:a:, Arrv:t3:t3]				REDUCE ACTION: Arr->[id, Arrv]                    
-[$::, Define::, ;::, AssExp::, ;::, Arr:x:4, =::, Arr:a:t3]				REDUCE ACTION: cal->[Arr]                         
-[$::, Define::, ;::, AssExp::, ;::, Arr:x:4, =::, cal:a[t3]:]				SHIFT TO: 51                                      
-[$::, Define::, ;::, AssExp::, ;::, Arr:x:4, =::, cal:a[t3]:, +::]				SHIFT TO: 41                                      
-[$::, Define::, ;::, AssExp::, ;::, Arr:x:4, =::, cal:a[t3]:, +::, id:y:]				REDUCE ACTION: Arrv->[eps]                        
-[$::, Define::, ;::, AssExp::, ;::, Arr:x:4, =::, cal:a[t3]:, +::, id:y:, Arrv:4:]				REDUCE ACTION: Arr->[id, Arrv]                    
-[$::, Define::, ;::, AssExp::, ;::, Arr:x:4, =::, cal:a[t3]:, +::, Arr:y:4]				REDUCE ACTION: cal->[Arr]                         
-[$::, Define::, ;::, AssExp::, ;::, Arr:x:4, =::, cal:a[t3]:, +::, cal:y:]				REDUCE ACTION: cal->[cal, +, cal]                 
-[$::, Define::, ;::, AssExp::, ;::, Arr:x:4, =::, cal:t5:]				REDUCE ACTION: assign->[=, cal]                   
-[$::, Define::, ;::, AssExp::, ;::, Arr:x:4, assign:t5:]				REDUCE ACTION: AssExp->[Arr, assign]              
-[$::, Define::, ;::, AssExp::, ;::, AssExp::]     				SHIFT TO: 135                                     
-[$::, Define::, ;::, AssExp::, ;::, AssExp::, ;::]				SHIFT TO: 14                                      
-[$::, Define::, ;::, AssExp::, ;::, AssExp::, ;::, id:a:]				SHIFT TO: 28                                      
-[$::, Define::, ;::, AssExp::, ;::, AssExp::, ;::, id:a:, [::]				SHIFT TO: 145                                     
-[$::, Define::, ;::, AssExp::, ;::, AssExp::, ;::, id:a:, [::, id:i:]				SHIFT TO: 146                                     
-[$::, Define::, ;::, AssExp::, ;::, AssExp::, ;::, id:a:, [::, id:i:, ]::]				SHIFT TO: 28                                      
-[$::, Define::, ;::, AssExp::, ;::, AssExp::, ;::, id:a:, [::, id:i:, ]::, [::]				SHIFT TO: 145                                     
-[$::, Define::, ;::, AssExp::, ;::, AssExp::, ;::, id:a:, [::, id:i:, ]::, [::, id:j:]				SHIFT TO: 146                                     
-[$::, Define::, ;::, AssExp::, ;::, AssExp::, ;::, id:a:, [::, id:i:, ]::, [::, id:j:, ]::]				REDUCE ACTION: Arrv->[eps]                        
-[$::, Define::, ;::, AssExp::, ;::, AssExp::, ;::, id:a:, [::, id:i:, ]::, [::, id:j:, ]::, Arrv:4:]				REDUCE ACTION: Arrv->[[, id, ], Arrv]             
-[$::, Define::, ;::, AssExp::, ;::, AssExp::, ;::, id:a:, [::, id:i:, ]::, Arrv:t5:t3]				REDUCE ACTION: Arrv->[[, id, ], Arrv]             
-[$::, Define::, ;::, AssExp::, ;::, AssExp::, ;::, id:a:, Arrv:t7:t7]				REDUCE ACTION: Arr->[id, Arrv]                    
-[$::, Define::, ;::, AssExp::, ;::, AssExp::, ;::, Arr:a:t7]				SHIFT TO: 30                                      
-[$::, Define::, ;::, AssExp::, ;::, AssExp::, ;::, Arr:a:t7, =::]				SHIFT TO: 37                                      
-[$::, Define::, ;::, AssExp::, ;::, AssExp::, ;::, Arr:a:t7, =::, int:32:]				REDUCE ACTION: cal->[int]                         
-[$::, Define::, ;::, AssExp::, ;::, AssExp::, ;::, Arr:a:t7, =::, cal:32:]				SHIFT TO: 51                                      
-[$::, Define::, ;::, AssExp::, ;::, AssExp::, ;::, Arr:a:t7, =::, cal:32:, +::]				SHIFT TO: 37                                      
-[$::, Define::, ;::, AssExp::, ;::, AssExp::, ;::, Arr:a:t7, =::, cal:32:, +::, int:40:]				REDUCE ACTION: cal->[int]                         
-[$::, Define::, ;::, AssExp::, ;::, AssExp::, ;::, Arr:a:t7, =::, cal:32:, +::, cal:40:]				REDUCE ACTION: cal->[cal, +, cal]                 
-[$::, Define::, ;::, AssExp::, ;::, AssExp::, ;::, Arr:a:t7, =::, cal:t9:]				REDUCE ACTION: assign->[=, cal]                   
-[$::, Define::, ;::, AssExp::, ;::, AssExp::, ;::, Arr:a:t7, assign:t9:]				REDUCE ACTION: AssExp->[Arr, assign]              
-[$::, Define::, ;::, AssExp::, ;::, AssExp::, ;::, AssExp::]				SHIFT TO: 135                                     
-[$::, Define::, ;::, AssExp::, ;::, AssExp::, ;::, AssExp::, ;::]				REDUCE ACTION: exp->[eps]                         
-[$::, Define::, ;::, AssExp::, ;::, AssExp::, ;::, AssExp::, ;::, exp::]				REDUCE ACTION: exp->[AssExp, ;, exp]              
-[$::, Define::, ;::, AssExp::, ;::, AssExp::, ;::, exp::]				REDUCE ACTION: exp->[AssExp, ;, exp]              
+[$::, Define::, ;::, AssExp::, ;::]               				REDUCE ACTION: exp->[eps]                         
 [$::, Define::, ;::, AssExp::, ;::, exp::]        				REDUCE ACTION: exp->[AssExp, ;, exp]              
 [$::, Define::, ;::, exp::]                       				REDUCE ACTION: exp->[Define, ;, exp]              
 [$::, exp::]                                      				REDUCE ACTION: s'->[exp]                          

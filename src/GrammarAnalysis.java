@@ -21,11 +21,12 @@ public class GrammarAnalysis{
     private String curId = "";
     private Identify id = new Identify();
     private Integer ArrIndex = 0;
+    private Integer LineIndex = 100;
     private boolean isArr = false;
     private String arrTmp = "";
     private ArrayList<Symbol> _lexeme = new ArrayList<>();
     private ArrayList<Identify> _identify = new ArrayList<>();
-    private static Map<String, Identify> IDENTIFY_MAP = new HashMap<>();
+    private Map<String, Identify> IDENTIFY_MAP = new HashMap<>();
     private Queue<Symbol> _lexemeQueue;
     private Queue<String> _actionMessageQueue;
     private Queue<String> _symbolMessageQueue;
@@ -222,6 +223,7 @@ public class GrammarAnalysis{
             if(!BEGIN_SIGN.equals(_symbolStack.peek().getType()) && !_lexemeQueue.isEmpty()) {
                 try {
                     if("id".equals(_lexemeQueue.peek().getType())){
+                        System.out.println(_lexemeQueue.peek().getType());
                         String predict = get2ndElementFromQueue(_lexemeQueue);
                         if(predict.equals("[")) {
                             isArr = true;
@@ -301,7 +303,8 @@ public class GrammarAnalysis{
                         if("".equals(_symbolStack.peek().getArrTmp())){
                             tmp3 = _symbolStack.peek().getValue();
                         }else if(_symbolStack.peek().getArrTmp().charAt(0) == 't'){
-                            tmp3 = _symbolStack.peek().getValue() + "[" + _symbolStack.peek().getArrTmp() + "]";
+                            System.out.println(LineIndex++ + " : " + "t" + _tmpIndex++ + " = " + _symbolStack.peek().getValue() + "[" + _symbolStack.peek().getArrTmp() + "]" );
+                            tmp3 = "t" + _tmpIndex;
                             isArr = false;
                         }else{
                             tmp3 = _symbolStack.peek().getValue();
@@ -327,9 +330,14 @@ public class GrammarAnalysis{
                         if(_isDefine){
                             tmp1 = _symbolStack.peek().getValue();
                         }else{
-                            tmp1 = IDENTIFY_MAP.get(curId).getLen(ArrIndex);
-                            tmp3 = _symbolStack.peek().getValue();
-                            ArrIndex++;
+                            if(!IDENTIFY_MAP.containsKey(curId)){
+                                System.out.println(curId + " has not defined");
+                                isArr = false;
+                            }else{
+                                tmp1 = IDENTIFY_MAP.get(curId).getLen(ArrIndex);
+                                tmp3 = _symbolStack.peek().getValue();
+                                ArrIndex++;
+                            }
                         }
                     }else if((ruleApplyTo == 24 || ruleApplyTo == 67) && i == 2){
                         if(_isDefine){
@@ -351,24 +359,24 @@ public class GrammarAnalysis{
                 //////////////////////////////////////这里处理输出///////////////////////////
                 if(ruleApplyTo == 37){
                     _tmpIndex++;
-                    System.out.println("t" + _tmpIndex + " = " + tmp2 + " + " + tmp1);
+                    System.out.println(LineIndex++ + " : " + "t" + _tmpIndex + " = " + tmp2 + " + " + tmp1);
                 } else if (ruleApplyTo == 38) {
                     _tmpIndex++;
-                    System.out.println("t" + _tmpIndex + " = " + tmp2 + " - " + tmp1);
+                    System.out.println(LineIndex++ + " : " + "t" + _tmpIndex + " = " + tmp2 + " - " + tmp1);
                 } else if(ruleApplyTo == 39){
                     _tmpIndex++;
-                    System.out.println("t" + _tmpIndex + " = " + tmp2 + " * " + tmp1);
+                    System.out.println(LineIndex++ + " : " + "t" + _tmpIndex + " = " + tmp2 + " * " + tmp1);
                 } else if(ruleApplyTo == 40){
                     _tmpIndex++;
-                    System.out.println("t" + _tmpIndex + " = " + tmp2 + " / " + tmp1);
+                    System.out.println(LineIndex++ + " : " + "t" + _tmpIndex + " = " + tmp2 + " / " + tmp1);
                 }
                 else if (ruleApplyTo == 29) {
                     if(isArr){
-                        System.out.println(tmp2 + "[" + arrTmp + "]" + " = " + tmp1);
+                        System.out.println(LineIndex++ + " : " + tmp2 + "[" + arrTmp + "]" + " = " + tmp1);
                         isArr=false;
                         arrTmp="";
                     }else{
-                        System.out.println(tmp2 + " = " + tmp1);
+                        System.out.println(LineIndex++ + " : " + tmp2 + " = " + tmp1);
                     }
                 }
                 if(ruleApplyTo == 55 || ruleApplyTo == 56){
@@ -393,13 +401,15 @@ public class GrammarAnalysis{
                     left = new Symbol(p.getLeftPart(),tmp3,"");
                 }else if(ruleApplyTo == 20){
                     left = new Symbol(p.getLeftPart(),tmp3,"");
+                }else if(ruleApplyTo == 21){
+                    left = new Symbol(p.getLeftPart(),tmp3,"");
                 }else if((ruleApplyTo == 24 || ruleApplyTo == 67)){
-                    if(!_isDefine){
-                        System.out.println("t" + _tmpIndex + " = " + tmp2 + " * " + tmp1);
-                        if(tmp3.charAt(0)=='t'){
+                    if(!_isDefine&&isArr){
+                        System.out.println(LineIndex++ + " : " + "t" + _tmpIndex + " = " + tmp2 + " * " + tmp1);
+                        if(tmp3.charAt(0)=='t'){//每两个中括号求和冰传给靠左的括号
                             String tmp = "t" + _tmpIndex;
                             _tmpIndex++;
-                            System.out.println("t" + _tmpIndex + " = " + tmp + " + " + tmp3);
+                            System.out.println(LineIndex++ + " : " + "t" + _tmpIndex + " = " + tmp + " + " + tmp3);
                             tmp3="t" + _tmpIndex;
                             arrTmp = tmp3;
                             _tmpIndex++;
@@ -413,7 +423,6 @@ public class GrammarAnalysis{
                     if(_isDefine){
                         id.setName(tmp3);
                         id.setType(curType);
-                        System.out.println("新建数组：" + tmp3 );
                         IDENTIFY_MAP.put(tmp3, id);
                         id = new Identify();
                         _isDefine = false;
@@ -436,7 +445,7 @@ public class GrammarAnalysis{
                         if(_isDefine){
                             id.pushLen("4");
                         }
-                    }else if(curType.equals("doubel")){
+                    }else if(curType.equals("double")){
                         tmp3 = "8";
                         if(_isDefine){
                             id.pushLen("8");

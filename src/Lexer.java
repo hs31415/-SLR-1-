@@ -39,6 +39,7 @@ class Symbol {
 }
 
 public class Lexer {
+    public boolean error = false;
     private int index = 0;
     private int syn;
     private int sum;
@@ -85,6 +86,7 @@ public class Lexer {
                     switch(syn){
                         case -1:
                             System.out.println(errorList.get(errorList.size() - 1) );
+                            error = true;
                             syn = 0;
                             break;
                         case -2:

@@ -80,10 +80,13 @@ public class Main {
                 inTextArea.setText("");
                 try {
                     lexer.GetInput(inPath, prefix + ".out", prefix + ".sym", prefix + ".err");
-
-                    GrammarAnalysis grammarAnalysis = new GrammarAnalysis();
-                    grammarAnalysis.handleInput(lexer.symbolArrayList);
-                    grammarAnalysis.fAnalysisInput();
+                    if(lexer.error){
+                        System.out.println("词法分析出错！");
+                    }else{
+                        GrammarAnalysis grammarAnalysis = new GrammarAnalysis();
+                        grammarAnalysis.handleInput(lexer.symbolArrayList);
+                        grammarAnalysis.fAnalysisInput();
+                    }
                     codePathTextField.setText("");
                     System.out.println("Compilation process completed!");
 
