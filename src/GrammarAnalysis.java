@@ -223,7 +223,6 @@ public class GrammarAnalysis{
             if(!BEGIN_SIGN.equals(_symbolStack.peek().getType()) && !_lexemeQueue.isEmpty()) {
                 try {
                     if("id".equals(_lexemeQueue.peek().getType())){
-                        System.out.println(_lexemeQueue.peek().getType());
                         String predict = get2ndElementFromQueue(_lexemeQueue);
                         if(predict.equals("[")) {
                             isArr = true;
@@ -370,13 +369,15 @@ public class GrammarAnalysis{
                 }
                 else if (ruleApplyTo == 29) {
                     if(isArr){
-                        System.out.println(LineIndex++ + " : " + tmp2 + " = " + tmp1);
+                        System.out.println(LineIndex++ + " : " + tmp2 + "[" + tmp3 + "]" + " = " + tmp1);
                         isArr=false;
                         arrTmp="";
+                        System.out.println(123);
                     }else if("".equals(tmp3)){
                         System.out.println(LineIndex++ + " : " + tmp2 + " = " + tmp1);
                     }else{
                         System.out.println(LineIndex++ + " : " + tmp2 + "[" + tmp3 + "]" + " = " + tmp1);
+                        System.out.println(123);
                     }
                 }
                 if(ruleApplyTo == 55 || ruleApplyTo == 56){
@@ -388,17 +389,11 @@ public class GrammarAnalysis{
                 }else if(ruleApplyTo == 23){
                     if(_isDefine){
                         left = new Symbol(p.getLeftPart(),tmp3,"");
-                    }else{
+                    }else if(isArr){
                         left = new Symbol(p.getLeftPart(),tmp3,tmp2);
-                    }
-
-                }else if(ruleApplyTo == 29){
-                    if(isArr){
-                        left = new Symbol(p.getLeftPart(),tmp2 + "[" + tmp1 + "]","");
                     }else{
-                        left = new Symbol(p.getLeftPart(),tmp2,"");
+                        left = new Symbol(p.getLeftPart(),tmp3,"");
                     }
-
                 }else if(ruleApplyTo == 36){
                     left = new Symbol(p.getLeftPart(),tmp3,"");
                 }else if(ruleApplyTo == 58){
