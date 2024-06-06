@@ -20,8 +20,8 @@ public class Identify {
         return lens.size();
     }
     public String getLen(Integer i) {
-        if(lens.size() < i) {
-            System.out.println("数字长度溢出！");
+        if(lens.size()-2 < i) {
+            System.out.println("数组长度溢出！");
             return null;
         }
         return lens.get(i);

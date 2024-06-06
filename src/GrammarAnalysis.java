@@ -297,14 +297,16 @@ public class GrammarAnalysis{
                         tmp1 = _symbolStack.peek().getValue();
                     }else if(ruleApplyTo == 29 && i == 1){
                         tmp2 = _symbolStack.peek().getValue();
+                        tmp3 = _symbolStack.peek().getArrTmp();
                     }else if(ruleApplyTo == 36 && i == 1){
                         tmp3 = _symbolStack.peek().getValue();
                     }else if(ruleApplyTo == 58 && i == 0){
                         if("".equals(_symbolStack.peek().getArrTmp())){
                             tmp3 = _symbolStack.peek().getValue();
                         }else if(_symbolStack.peek().getArrTmp().charAt(0) == 't'){
-                            System.out.println(LineIndex++ + " : " + "t" + _tmpIndex++ + " = " + _symbolStack.peek().getValue() + "[" + _symbolStack.peek().getArrTmp() + "]" );
+                            System.out.println(LineIndex++ + " : " + "t" + _tmpIndex + " = " + _symbolStack.peek().getValue() + "[" + _symbolStack.peek().getArrTmp() + "]" );
                             tmp3 = "t" + _tmpIndex;
+                            _tmpIndex++;
                             isArr = false;
                         }else{
                             tmp3 = _symbolStack.peek().getValue();
@@ -358,31 +360,29 @@ public class GrammarAnalysis{
                 }
                 //////////////////////////////////////这里处理输出///////////////////////////
                 if(ruleApplyTo == 37){
-                    _tmpIndex++;
                     System.out.println(LineIndex++ + " : " + "t" + _tmpIndex + " = " + tmp2 + " + " + tmp1);
                 } else if (ruleApplyTo == 38) {
-                    _tmpIndex++;
                     System.out.println(LineIndex++ + " : " + "t" + _tmpIndex + " = " + tmp2 + " - " + tmp1);
                 } else if(ruleApplyTo == 39){
-                    _tmpIndex++;
                     System.out.println(LineIndex++ + " : " + "t" + _tmpIndex + " = " + tmp2 + " * " + tmp1);
                 } else if(ruleApplyTo == 40){
-                    _tmpIndex++;
                     System.out.println(LineIndex++ + " : " + "t" + _tmpIndex + " = " + tmp2 + " / " + tmp1);
                 }
                 else if (ruleApplyTo == 29) {
                     if(isArr){
-                        System.out.println(LineIndex++ + " : " + tmp2 + "[" + arrTmp + "]" + " = " + tmp1);
+                        System.out.println(LineIndex++ + " : " + tmp2 + " = " + tmp1);
                         isArr=false;
                         arrTmp="";
-                    }else{
+                    }else if("".equals(tmp3)){
                         System.out.println(LineIndex++ + " : " + tmp2 + " = " + tmp1);
+                    }else{
+                        System.out.println(LineIndex++ + " : " + tmp2 + "[" + tmp3 + "]" + " = " + tmp1);
                     }
                 }
                 if(ruleApplyTo == 55 || ruleApplyTo == 56){
                     left = new Symbol(p.getLeftPart(),tmp3,"");
                 }else if(ruleApplyTo <= 40 && ruleApplyTo >= 37){
-                    left = new Symbol(p.getLeftPart(),"t" + _tmpIndex,"");
+                    left = new Symbol(p.getLeftPart(),"t" + _tmpIndex++,"");
                 }else if(ruleApplyTo == 27){
                     left = new Symbol(p.getLeftPart(),tmp3,"");
                 }else if(ruleApplyTo == 23){
@@ -393,11 +393,15 @@ public class GrammarAnalysis{
                     }
 
                 }else if(ruleApplyTo == 29){
-                    left = new Symbol(p.getLeftPart(),"","");
+                    if(isArr){
+                        left = new Symbol(p.getLeftPart(),tmp2 + "[" + tmp1 + "]","");
+                    }else{
+                        left = new Symbol(p.getLeftPart(),tmp2,"");
+                    }
+
                 }else if(ruleApplyTo == 36){
                     left = new Symbol(p.getLeftPart(),tmp3,"");
                 }else if(ruleApplyTo == 58){
-
                     left = new Symbol(p.getLeftPart(),tmp3,"");
                 }else if(ruleApplyTo == 20){
                     left = new Symbol(p.getLeftPart(),tmp3,"");
