@@ -17,7 +17,15 @@ public class GrammarAnalysis{
     private static BufferedReader _bufferedReader;
     private static FileReader _fileReader;
     private String _textContent = "";
+    private String curType = "";
+    private String curId = "";
+    private Identify id = new Identify();
+    private Integer ArrIndex = 0;
+    private boolean isArr = false;
+    private String arrTmp = "";
     private ArrayList<Symbol> _lexeme = new ArrayList<>();
+    private ArrayList<Identify> _identify = new ArrayList<>();
+    private static Map<String, Identify> IDENTIFY_MAP = new HashMap<>();
     private Queue<Symbol> _lexemeQueue;
     private Queue<String> _actionMessageQueue;
     private Queue<String> _symbolMessageQueue;
@@ -27,8 +35,9 @@ public class GrammarAnalysis{
     private Stack<Symbol> _symbolStack;
     private Stack<Integer> _stateStack;
     private Integer _currentState;
-    private Integer _tmpIndex = 0;
+    private Integer _tmpIndex = 1;
     private boolean _isError;
+    private boolean _isDefine = false;
     private Boolean _isUsingExternalFile;
     private String _externalTablePath;
     private File _externalTableFile;
@@ -45,7 +54,7 @@ public class GrammarAnalysis{
             _lexeme.add(symbol);
         }
         if(_lexeme != null){
-            Symbol end = new Symbol("$","");
+            Symbol end = new Symbol("$","","");
             _lexeme.add(end);
             _lexemeQueue = new LinkedList<>(_lexeme);
         }
@@ -142,7 +151,7 @@ public class GrammarAnalysis{
         _lexemeMessageQueue = new LinkedList<>();
 
         _stateStack.push(0);
-        Symbol start = new Symbol("$","");
+        Symbol start = new Symbol("$","","");
         _symbolStack.push(start);
     }
 
@@ -211,6 +220,18 @@ public class GrammarAnalysis{
             _stateMessageQueue.add(_stateStack.toString());
             _lexemeMessageQueue.add(_lexemeQueue.toString());
             if(!BEGIN_SIGN.equals(_symbolStack.peek().getType()) && !_lexemeQueue.isEmpty()) {
+                try {
+                    if("id".equals(_lexemeQueue.peek().getType())){
+                        String predict = get2ndElementFromQueue(_lexemeQueue);
+                        if(predict.equals("[")) {
+                            isArr = true;
+                            ArrIndex = 0;
+                            curId = _lexemeQueue.peek().getValue();
+                        }
+                    }
+                }catch (Exception e){
+                    throw new RuntimeException(e);
+                }
                 fAnalysisAction(_currentState, _lexemeQueue.peek().getType());
             }else{
                 break;
@@ -249,6 +270,9 @@ public class GrammarAnalysis{
             String tmp1 = "";
             String tmp2 = "";
             String tmp3 = "";
+            String type = "";
+            Symbol left = new Symbol("", "","");
+
             Production p = ProductionConst.PRODUCTION_MAP.get(ruleApplyTo);
             // 获取产生式的右部
             ArrayList<String> rightPart = p.getRightPart();
@@ -259,10 +283,12 @@ public class GrammarAnalysis{
                         tmp1 = _symbolStack.peek().getValue();
                     }else if(ruleApplyTo <= 40 && ruleApplyTo >= 37 && i == 2){
                         tmp2 = _symbolStack.peek().getValue();
-                    }else if(ruleApplyTo == 55){
+                    }else if(ruleApplyTo == 55 || ruleApplyTo ==  56){
                         tmp3 = _symbolStack.peek().getValue();
                     }else if(ruleApplyTo == 27 && i == 0){
                         tmp3 = _symbolStack.peek().getValue();
+                    }else if(ruleApplyTo == 23 && i == 0){
+                        tmp2 = _symbolStack.peek().getValue();
                     }else if(ruleApplyTo == 23 && i == 1){
                         tmp3 = _symbolStack.peek().getValue();
                     }else if(ruleApplyTo == 29 && i == 0){
@@ -271,10 +297,58 @@ public class GrammarAnalysis{
                         tmp2 = _symbolStack.peek().getValue();
                     }else if(ruleApplyTo == 36 && i == 1){
                         tmp3 = _symbolStack.peek().getValue();
+                    }else if(ruleApplyTo == 58 && i == 0){
+                        if("".equals(_symbolStack.peek().getArrTmp())){
+                            tmp3 = _symbolStack.peek().getValue();
+                        }else if(_symbolStack.peek().getArrTmp().charAt(0) == 't'){
+                            tmp3 = _symbolStack.peek().getValue() + "[" + _symbolStack.peek().getArrTmp() + "]";
+                            isArr = false;
+                        }else{
+                            tmp3 = _symbolStack.peek().getValue();
+                        }
+                    }else if(ruleApplyTo == 20){
+                        if(IDENTIFY_MAP.containsKey(curId)){
+                            System.out.println(curId + " has been defined");
+                        }else{
+                            curType = "integer";
+                            tmp3 = "integer";
+                            _isDefine = true;
+                        }
+                    }else if(ruleApplyTo == 21){
+                        if(IDENTIFY_MAP.containsKey(curId)){
+                            System.out.println(curId + " has been defined");
+                        }else{
+                            curType = "double";
+                            tmp3 = "double";
+                            _isDefine = true;
+                        }
+                    }
+                    else if((ruleApplyTo == 24 || ruleApplyTo == 67) && i == 0){
+                        if(_isDefine){
+                            tmp1 = _symbolStack.peek().getValue();
+                        }else{
+                            tmp1 = IDENTIFY_MAP.get(curId).getLen(ArrIndex);
+                            tmp3 = _symbolStack.peek().getValue();
+                            ArrIndex++;
+                        }
+                    }else if((ruleApplyTo == 24 || ruleApplyTo == 67) && i == 2){
+                        if(_isDefine){
+                            Integer size = Integer.parseInt(tmp1);
+                            tmp2 = _symbolStack.peek().getValue();
+                            Integer len = Integer.parseInt(tmp2);
+                            len = size * len;
+                            tmp3 = ""+len;
+                            id.pushLen(tmp3);
+                        }else{
+                            tmp2 = _symbolStack.peek().getValue();
+                        }
+                    }else if(ruleApplyTo == 19 && i == 0){
+                        tmp3 = _symbolStack.peek().getValue();
                     }
                     _symbolStack.pop();
                     _stateStack.pop();
                 }
+                //////////////////////////////////////这里处理输出///////////////////////////
                 if(ruleApplyTo == 37){
                     _tmpIndex++;
                     System.out.println("t" + _tmpIndex + " = " + tmp2 + " + " + tmp1);
@@ -289,24 +363,66 @@ public class GrammarAnalysis{
                     System.out.println("t" + _tmpIndex + " = " + tmp2 + " / " + tmp1);
                 }
                 else if (ruleApplyTo == 29) {
-                    System.out.println(tmp2 + " = " + tmp1);
+                    if(isArr){
+                        System.out.println(tmp2 + "[" + arrTmp + "]" + " = " + tmp1);
+                        isArr=false;
+                        arrTmp="";
+                    }else{
+                        System.out.println(tmp2 + " = " + tmp1);
+                    }
                 }
-                Symbol left = new Symbol("", "");
-                if(ruleApplyTo == 55){
-                    left = new Symbol(p.getLeftPart(),tmp3);
+                if(ruleApplyTo == 55 || ruleApplyTo == 56){
+                    left = new Symbol(p.getLeftPart(),tmp3,"");
                 }else if(ruleApplyTo <= 40 && ruleApplyTo >= 37){
-                    left = new Symbol(p.getLeftPart(),"t" + _tmpIndex);
+                    left = new Symbol(p.getLeftPart(),"t" + _tmpIndex,"");
                 }else if(ruleApplyTo == 27){
-                    left = new Symbol(p.getLeftPart(),tmp3);
+                    left = new Symbol(p.getLeftPart(),tmp3,"");
                 }else if(ruleApplyTo == 23){
-                    left = new Symbol(p.getLeftPart(),tmp3);
+                    if(_isDefine){
+                        left = new Symbol(p.getLeftPart(),tmp3,"");
+                    }else{
+                        left = new Symbol(p.getLeftPart(),tmp3,tmp2);
+                    }
+
                 }else if(ruleApplyTo == 29){
-                    left = new Symbol(p.getLeftPart(),"");
+                    left = new Symbol(p.getLeftPart(),"","");
                 }else if(ruleApplyTo == 36){
-                    left = new Symbol(p.getLeftPart(),tmp3);
+                    left = new Symbol(p.getLeftPart(),tmp3,"");
+                }else if(ruleApplyTo == 58){
+
+                    left = new Symbol(p.getLeftPart(),tmp3,"");
+                }else if(ruleApplyTo == 20){
+                    left = new Symbol(p.getLeftPart(),tmp3,"");
+                }else if((ruleApplyTo == 24 || ruleApplyTo == 67)){
+                    if(!_isDefine){
+                        System.out.println("t" + _tmpIndex + " = " + tmp2 + " * " + tmp1);
+                        if(tmp3.charAt(0)=='t'){
+                            String tmp = "t" + _tmpIndex;
+                            _tmpIndex++;
+                            System.out.println("t" + _tmpIndex + " = " + tmp + " + " + tmp3);
+                            tmp3="t" + _tmpIndex;
+                            arrTmp = tmp3;
+                            _tmpIndex++;
+                        }else{
+                            tmp3="t" +_tmpIndex;
+                            _tmpIndex++;
+                        }
+                    }
+                    left = new Symbol(p.getLeftPart(),tmp3,arrTmp);
+                }else if(ruleApplyTo == 19){
+                    if(_isDefine){
+                        id.setName(tmp3);
+                        id.setType(curType);
+                        System.out.println("新建数组：" + tmp3 );
+                        IDENTIFY_MAP.put(tmp3, id);
+                        id = new Identify();
+                        _isDefine = false;
+                        isArr=false;
+                    }
+                    left = new Symbol(p.getLeftPart(),"","");
                 }
                 else{
-                    left = new Symbol(p.getLeftPart(),"");
+                    left = new Symbol(p.getLeftPart(),"","");
                 }
                 // 将右部规约成左部
                 _symbolStack.push(left);
@@ -314,7 +430,23 @@ public class GrammarAnalysis{
                 // 基于目前状态再分析一次
                 if(!_symbolStack.peek().getType().equals(BEGIN_SIGN)) fAnalysisAction(_currentState, _symbolStack.peek().getType());
             }else if("eps".equals(rightPart.get(0))){
-                Symbol left = new Symbol(p.getLeftPart(),"");
+                if(ruleApplyTo == 26){
+                    if(curType.equals("integer")){
+                        tmp3 = "4";
+                        if(_isDefine){
+                            id.pushLen("4");
+                        }
+                    }else if(curType.equals("doubel")){
+                        tmp3 = "8";
+                        if(_isDefine){
+                            id.pushLen("8");
+                        }
+                    }
+                    left = new Symbol(p.getLeftPart(),tmp3,"");
+                }else{
+                    left = new Symbol(p.getLeftPart(),"","");
+                }
+
                 _symbolStack.push(left);
                 _currentState = _stateStack.peek();
                 fAnalysisAction(_currentState,  _symbolStack.peek().getType());
@@ -353,14 +485,14 @@ public class GrammarAnalysis{
                     _symbolStack.pop();
                     _stateStack.pop();
                 }
-                Symbol left = new Symbol(p.getLeftPart(),"");
+                Symbol left = new Symbol(p.getLeftPart(),"","");
                 // 将右部规约成左部
                 _symbolStack.push(left);
                 _currentState = _stateStack.peek();
                 // 基于目前状态再分析一次
                 if(!_symbolStack.peek().equals(BEGIN_SIGN)) analysisAction(_currentState, _symbolStack.peek().getType());
             }else if("eps".equals(rightPart.get(0))){
-                Symbol left = new Symbol(p.getLeftPart(),"");
+                Symbol left = new Symbol(p.getLeftPart(),"","");
                 _symbolStack.push(left);
                 _currentState = _stateStack.peek();
                 analysisAction(_currentState,  _symbolStack.peek().getType());
@@ -373,18 +505,18 @@ public class GrammarAnalysis{
     }
 
     private String get2ndElementFromQueue(Queue<Symbol> q) throws Exception {
-       if(q.size() < 2) throw new IllegalArgumentException("Queue size is not correct.");
-       String ans = "";
-       Queue<Symbol> p = new LinkedList<>();
-       Symbol tmp = q.poll();
-       p.offer(tmp);
-       ans = q.peek().getType();
-       while(!q.isEmpty()){
-           p.offer(q.peek());
-           q.poll();
-       }
-       _lexemeQueue=p;
-       return ans;
+        if(q.size() < 2) throw new IllegalArgumentException("Queue size is not correct.");
+        String ans = "";
+        Queue<Symbol> p = new LinkedList<>();
+        Symbol tmp = q.poll();
+        p.offer(tmp);
+        ans = q.peek().getType();
+        while(!q.isEmpty()){
+            p.offer(q.peek());
+            q.poll();
+        }
+        _lexemeQueue=p;
+        return ans;
     }
 
     private void fAnalysisAction(Integer currentState, String inputFront){

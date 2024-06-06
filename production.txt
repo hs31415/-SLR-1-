@@ -26,8 +26,8 @@
 25 Arrv -> [ num ] Arrv 
 26 Arrv -> eps
 27 assign -> = cal 
-28 assign -> = cal assgin
-29 AssExp -> Arr assgin
+28 assign -> = cal assign
+29 AssExp -> Arr assign
 30 Defun -> id = function ( pars ) block
 31 pars -> par , pars
 32 pars -> par

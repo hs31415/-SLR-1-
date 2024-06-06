@@ -10,10 +10,12 @@ import java.util.Scanner;
 class Symbol {
     private String type;
     private String value;
+    private String arrTmp;
 
-    public Symbol(String type, String value) {
+    public Symbol(String type, String value,String arrTmp) {
         this.type = type;
         this.value = value;
+        this.arrTmp = arrTmp;
     }
 
     public String getType() {
@@ -24,13 +26,15 @@ class Symbol {
         return value;
     }
 
+    public String getArrTmp(){return arrTmp;}
+
     public void printSymbol() {
         System.out.println(type + " : " + value);
     }
 
     @Override
     public String toString() {
-        return type + ":" + value;
+        return type + ":" + value + ":" + arrTmp;
     }
 }
 
@@ -87,27 +91,27 @@ public class Lexer {
                             break;
                         default:
                             if(syn != 0){
-                                Symbol symObj = new Symbol("", "");
+                                Symbol symObj = new Symbol("", "","");
                                 String outString = "";
                                 if(syn == 10){
-                                    symObj = new Symbol("id", token);
+                                    symObj = new Symbol("id", token,"");
                                     String symString = "IDENTIFIER " + token + "\n";
                                     if (!symSet.contains(symString)) {
                                         symSet.add(symString);
                                     }
                                     outString = "id" + ":" + token;
                                 }else if(syn == 20){
-                                    symObj = new Symbol("int", token);
+                                    symObj = new Symbol("int", token,"");
                                     outString = "int" + ":" + token;
                                 }else if(syn == 21){
-                                    symObj = new Symbol("float", token);
+                                    symObj = new Symbol("real", token,"");
                                     outString = "float" + ":" + token;
                                 }else if(syn == 22){
-                                    symObj = new Symbol("num", token);
+                                    symObj = new Symbol("int", token,"");
                                     outString = "num" + ":" + token;
                                 }
                                 else{
-                                    symObj = new Symbol(token, "");
+                                    symObj = new Symbol(token, "","");
                                     outString = syn + token ;
                                 }
                                 symbolArrayList.add(symObj);
